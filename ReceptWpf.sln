@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReceptWpf.App", "ReceptWpf.App\ReceptWpf.App.csproj", "{D2532BF3-3373-40BA-A2F9-7D9B7FDC4EB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReceptWpf.Models", "ReceptWpf.Models\ReceptWpf.Models.csproj", "{B682529A-1DBA-4162-856B-DC8EF22CBD9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReceptWpf.Models.Test", "ReceptWpf.Models.Test\ReceptWpf.Models.Test.csproj", "{FE1BFB49-19C2-4C85-9DD6-015E53562288}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D2532BF3-3373-40BA-A2F9-7D9B7FDC4EB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2532BF3-3373-40BA-A2F9-7D9B7FDC4EB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2532BF3-3373-40BA-A2F9-7D9B7FDC4EB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2532BF3-3373-40BA-A2F9-7D9B7FDC4EB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B682529A-1DBA-4162-856B-DC8EF22CBD9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B682529A-1DBA-4162-856B-DC8EF22CBD9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B682529A-1DBA-4162-856B-DC8EF22CBD9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B682529A-1DBA-4162-856B-DC8EF22CBD9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE1BFB49-19C2-4C85-9DD6-015E53562288}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE1BFB49-19C2-4C85-9DD6-015E53562288}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE1BFB49-19C2-4C85-9DD6-015E53562288}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE1BFB49-19C2-4C85-9DD6-015E53562288}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
