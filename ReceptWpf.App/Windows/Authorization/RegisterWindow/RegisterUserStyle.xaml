@@ -8,7 +8,7 @@
            TargetType="{x:Type StackPanel}">
         <Setter Property="HorizontalAlignment" Value="Center"/>
     </Style>
-    <Style x:Key="StyleLabel"
+    <Style x:Key="StyleTextBlockTitle"
            BasedOn="{StaticResource MaterialDesignTextBlock}"
            TargetType="{x:Type TextBlock}">
         <Setter Property="FontSize" Value="25"/>

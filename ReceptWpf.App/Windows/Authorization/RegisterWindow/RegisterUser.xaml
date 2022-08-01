@@ -1,9 +1,8 @@
-﻿<Window x:Class="ReceptWpf.App.RegisterUser"
+﻿<Window x:Class="ReceptWpf.App.Windows.Authorization.RegisterWindow.RegisterUser"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:components="clr-namespace:ReceptWpf.App.Components"
         xmlns:wpf="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:inputComponents="clr-namespace:ReceptWpf.App.Components.InputComponents"
         mc:Ignorable="d"
@@ -15,7 +14,7 @@
     <StackPanel>
         <StackPanel Style="{StaticResource StyleStackPanel}">
             <TextBlock
-                Style="{StaticResource  StyleLabel}"
+                Style="{StaticResource  StyleTextBlockTitle}"
                 HorizontalAlignment="Center"
                 Text="Sign In">
             </TextBlock>
@@ -40,7 +39,7 @@
             </StackPanel>
             <StackPanel HorizontalAlignment="Right">
                 <TextBlock Style="{StaticResource StyleHyperText}">
-                    <Hyperlink>
+                    <Hyperlink Click="Hyperlink_OnClick">
                         Have an account?
                     </Hyperlink>
                 </TextBlock>
