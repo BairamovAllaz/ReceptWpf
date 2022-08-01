@@ -1,4 +1,4 @@
-﻿namespace Models;
+﻿namespace Models.UserDB.User_Models;
 
 public class User : IEquatable<User>
 {

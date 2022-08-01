@@ -1,10 +1,11 @@
 ﻿using System.Data;
 using Microsoft.Data.Sqlite;
-namespace Models;
+using Models.UserDB.User_Models;
+
+namespace Models.UserDB;
 public class UserDatabase
 {
-    // TODO FIX ENVORIMENT VARIABLE PROBLEM
-    private readonly string? connstring = Environment.GetEnvironmentVariable("CONNECTION_STRING");
+    private readonly string? connstring = "Data Source=Database.db;";
     private SqliteConnection _db;
     public UserDatabase()
     {
