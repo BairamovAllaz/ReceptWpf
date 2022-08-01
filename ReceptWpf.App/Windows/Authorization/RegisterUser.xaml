@@ -1,0 +1,50 @@
+﻿<Window x:Class="ReceptWpf.App.RegisterUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:components="clr-namespace:ReceptWpf.App.Components"
+        xmlns:wpf="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:inputComponents="clr-namespace:ReceptWpf.App.Components.InputComponents"
+        mc:Ignorable="d"
+        Title="Register" Height="670" Width="350"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary Source="RegisterUserStyle.xaml"/>
+    </Window.Resources>
+    <StackPanel>
+        <StackPanel Style="{StaticResource StyleStackPanel}">
+            <TextBlock
+                Style="{StaticResource  StyleLabel}"
+                HorizontalAlignment="Center"
+                Text="Sign In">
+            </TextBlock>
+            <inputComponents:InputComponent LabelName="FirstName"/>
+            <inputComponents:InputComponent LabelName="LastName"/>
+            <inputComponents:InputComponent LabelName="Email"/>
+            <inputComponents:InputComponent LabelName="PhoneNumber"/>
+            <PasswordBox
+                Margin="20"
+                wpf:HintAssist.Hint="Password"
+                wpf:HintAssist.Foreground="Green"
+                wpf:TextFieldAssist.UnderlineBrush="Green"
+                FontSize="20"
+                PasswordChar="*"
+                Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+            <StackPanel Orientation="Horizontal"
+                        Style="{StaticResource StyleStackPanel}">
+                <Button Style="{StaticResource StyleButtonClear}"
+                        Content="Clear"/>
+                <Button Style="{StaticResource StyleButtonRegister}"
+                        Content="SingIn"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Right">
+                <TextBlock Style="{StaticResource StyleHyperText}">
+                    <Hyperlink>
+                        Have an account?
+                    </Hyperlink>
+                </TextBlock>
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
+</Window>
