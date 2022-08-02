@@ -12,9 +12,9 @@ public class UserDatabaseTest
     {
         var user = new User
         {
-            FirstName = "User3",
-            LastName = "Fake3",
-            Email = "FakeUser3@gmail.com",
+            FirstName = "User4",
+            LastName = "Fake4",
+            Email = "FakeUser4@gmail.com",
             Password = "123",
             Phone_number = "+798653412455"
         };

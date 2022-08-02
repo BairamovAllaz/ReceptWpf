@@ -11,4 +11,8 @@
       <PackageReference Include="MaterialDesignThemes" Version="4.6.0-ci246" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\ReceptWpf.Models\ReceptWpf.Models.csproj" />
+    </ItemGroup>
+
 </Project>

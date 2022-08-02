@@ -18,21 +18,24 @@
             HorizontalAlignment="Center"
             Text="Login">
         </TextBlock>
-        <components:InputComponent LabelName="Email"/>
+        <components:InputComponent x:Name="InputEmail" LabelName="Email"/>
         <PasswordBox
+            x:Name="InputPasswordBox"
             Margin="20"
             materialDesign:HintAssist.Hint="Password"
-            materialDesign:HintAssist.Foreground="Green"
-            materialDesign:TextFieldAssist.UnderlineBrush="Green"
+            materialDesign:HintAssist.Foreground="DarkViolet"
+            materialDesign:TextFieldAssist.UnderlineBrush="DarkViolet"
             FontSize="20"
             PasswordChar="*"
             Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
         <StackPanel Orientation="Horizontal"
                     Style="{StaticResource StyleStackPanel}">
             <Button Style="{StaticResource StyleButtonClear}"
-                    Content="Clear"/>
+                    Content="Clear"
+                    Click="ButtonClear_Onlick"/>
             <Button Style="{StaticResource StyleButtonLogin}"
-                    Content="SingIn"/>
+                    Content="SingIn"
+                    Click="ButtonLogin_OnClick"/>
         </StackPanel>
         <StackPanel HorizontalAlignment="Right">
             <TextBlock Style="{StaticResource StyleHyperText}">

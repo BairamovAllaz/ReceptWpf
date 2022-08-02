@@ -15,7 +15,6 @@
         <Setter Property="Foreground" Value="DarkViolet"/>
         <Setter Property="FontWeight" Value="Bold"/>
     </Style>
-    
     <Style x:Key="StyleDefaultButton"
            BasedOn="{StaticResource MaterialDesignRaisedDarkButton}"
            TargetType="{x:Type Button}">
@@ -23,16 +22,22 @@
         <Setter Property="Margin" Value="5,15,5,5"/>
         <Setter Property="Padding" Value="5"/>
     </Style>
-    
     <Style x:Key="StyleButtonRegister"
            BasedOn="{StaticResource StyleDefaultButton}"
            TargetType="{x:Type Button}">
     </Style>
-    
     <Style x:Key="StyleButtonClear"
            BasedOn="{StaticResource StyleDefaultButton}"
            TargetType="{x:Type Button}">
-        <Setter Property="Background" Value="DarkSlateBlue"/>
+        <Style.Setters>
+             <Setter Property="Background" Value="DarkSlateBlue"/>
+        </Style.Setters>
+        <!--TODO FIX CLEAR BUTTON-->
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=StyleTextBox,Path=Text}" Value="">
+                <Setter Property="IsEnabled" Value="False"/>
+            </DataTrigger>
+        </Style.Triggers>
     </Style>
     <Style x:Key="StyleHyperText"
            TargetType="{x:Type TextBlock}">

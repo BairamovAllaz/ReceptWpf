@@ -9,7 +9,12 @@
         Title="Register" Height="670" Width="350"
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
-        <ResourceDictionary Source="RegisterUserStyle.xaml"/>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../../Components/InputComponents/InputComponentStyle.xaml"/>
+                <ResourceDictionary Source="RegisterUserStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Window.Resources>
     <StackPanel>
         <StackPanel Style="{StaticResource StyleStackPanel}">
@@ -18,24 +23,38 @@
                 HorizontalAlignment="Center"
                 Text="Sign In">
             </TextBlock>
-            <inputComponents:InputComponent LabelName="FirstName"/>
-            <inputComponents:InputComponent LabelName="LastName"/>
-            <inputComponents:InputComponent LabelName="Email"/>
-            <inputComponents:InputComponent LabelName="PhoneNumber"/>
+            <inputComponents:InputComponent x:Name="InputFirstName" LabelName="FirstName"/>
+            <inputComponents:InputComponent x:Name="InputLastName" LabelName="LastName"/>
+            <inputComponents:InputComponent x:Name="InputEmail" LabelName="Email"/>
+            <inputComponents:InputComponent x:Name="InputPhoneNumber" LabelName="PhoneNumber"/>
             <PasswordBox
+                x:Name="InputPasswordBox"
                 Margin="20"
                 wpf:HintAssist.Hint="Password"
-                wpf:HintAssist.Foreground="Green"
-                wpf:TextFieldAssist.UnderlineBrush="Green"
+                wpf:HintAssist.Foreground="DarkViolet"
+                wpf:TextFieldAssist.UnderlineBrush="DarkViolet"
                 FontSize="20"
                 PasswordChar="*"
-                Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
             <StackPanel Orientation="Horizontal"
                         Style="{StaticResource StyleStackPanel}">
                 <Button Style="{StaticResource StyleButtonClear}"
-                        Content="Clear"/>
-                <Button Style="{StaticResource StyleButtonRegister}"
-                        Content="SingIn"/>
+                        Content="Clear"
+                        Click="ButtonClear_OnClick"
+                        />
+                <Button Content="SingIn"
+                        Click="ButtonRegister_OnClick">
+                    <Button.Resources>
+                        <!--BasedOn="{StaticResource StyleButtonRegister}"-->
+                        <Style TargetType="{x:Type inputComponents:InputComponent}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=InputCompomnent.Text}">
+                                    
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Resources>
+                </Button>
             </StackPanel>
             <StackPanel HorizontalAlignment="Right">
                 <TextBlock Style="{StaticResource StyleHyperText}">

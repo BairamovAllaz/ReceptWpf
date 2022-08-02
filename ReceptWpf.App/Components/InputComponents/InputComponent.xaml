@@ -11,10 +11,11 @@
         <ResourceDictionary Source="InputComponentStyle.xaml"/>
     </UserControl.Resources>
     <StackPanel Style="{StaticResource StyleDefaultStackPanel}">
-        <TextBox Margin="20"
+        <TextBox x:Name="InputMy"
+                Margin="20"
                  wpf:HintAssist.Hint="{Binding LabelName}"
-                 wpf:HintAssist.Foreground="Green"
-                 wpf:TextFieldAssist.UnderlineBrush="Green"
+                 wpf:HintAssist.Foreground="DarkViolet"
+                 wpf:TextFieldAssist.UnderlineBrush="DarkViolet"
                  Style="{StaticResource StyleTextBox}"/>
     </StackPanel>
 </UserControl>
