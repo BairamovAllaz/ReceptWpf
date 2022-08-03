@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Navigation;
 using Models.UserDB;
 using Models.UserDB.User_Models;
+using ReceptWpf.App.Configs;
+using ReceptWpf.App.Windows.HomeWindows;
 using LoginUser = ReceptWpf.App.Windows.Authorization.LoginWindow.LoginUser;
 
 namespace ReceptWpf.App.Windows.Authorization.RegisterWindow;
@@ -30,14 +33,12 @@ public partial class RegisterUser : Window
         int result = userDatabase.InsertUser(user);
         if (result == 1)
         {
-            MessageBox.Show("You are done with database");
+            UserToJson.SaveToJsonFile(user:user);
+            new HomeWindow().Show();
+            this.Close();
         }
-        else
-        {
-            MessageBox.Show("Something wrong");
-        }
+        else MessageBox.Show("Something wrong");
     }
-
     public User CreateUser()
     {
         return new User
@@ -57,6 +58,4 @@ public partial class RegisterUser : Window
         InputPhoneNumber.InputMy.Clear();
         InputPasswordBox.Clear();
     }
-
-   
 }
