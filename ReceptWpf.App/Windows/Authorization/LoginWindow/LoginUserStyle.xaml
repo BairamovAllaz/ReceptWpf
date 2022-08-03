@@ -20,6 +20,7 @@
         <Setter Property="Width" Value="150"/>
         <Setter Property="Margin" Value="5,15,5,5"/>
         <Setter Property="Padding" Value="5"/>
+        <Setter Property="IsEnabled" Value="True"/>
     </Style>
     <Style x:Key="StyleButtonLogin"
            BasedOn="{StaticResource StyleDefaultButton}"

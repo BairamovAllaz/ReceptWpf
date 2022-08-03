@@ -13,6 +13,7 @@
     <StackPanel Style="{StaticResource StyleDefaultStackPanel}">
         <TextBox x:Name="InputMy"
                 Margin="20"
+                 TextChanged="InputMy_OnTextChanged"
                  wpf:HintAssist.Hint="{Binding LabelName}"
                  wpf:HintAssist.Foreground="DarkViolet"
                  wpf:TextFieldAssist.UnderlineBrush="DarkViolet"

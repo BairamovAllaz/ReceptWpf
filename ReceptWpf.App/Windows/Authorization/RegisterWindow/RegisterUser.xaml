@@ -38,21 +38,49 @@
                 Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
             <StackPanel Orientation="Horizontal"
                         Style="{StaticResource StyleStackPanel}">
-                <Button Style="{StaticResource StyleButtonClear}"
-                        Content="Clear"
-                        Click="ButtonClear_OnClick"
-                        />
-                <Button Content="SingIn"
+                <Button Content="Clear"
+                        Click="ButtonClear_OnClick">
+                    <Button.Resources>
+                        <Style BasedOn="{StaticResource StyleButtonClear}"
+                               TargetType="Button">
+                            <Style.Triggers>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding ElementName=InputFirstName,Path=IsEmpty}" Value="False"/>
+                                        <Condition Binding="{Binding ElementName=InputLastName,Path=IsEmpty}" Value="False"/>
+                                        <Condition Binding="{Binding ElementName=InputEmail,Path=IsEmpty}" Value="False"/>
+                                        <Condition Binding="{Binding ElementName=InputPhoneNumber,Path=IsEmpty}" Value="False"/>
+                                    </MultiDataTrigger.Conditions>
+                                        <Setter Property="IsEnabled" Value="False"/>
+                                </MultiDataTrigger>
+                            </Style.Triggers>                                
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Content="SignIn"
                         Click="ButtonRegister_OnClick">
                     <Button.Resources>
-                        <!--BasedOn="{StaticResource StyleButtonRegister}"-->
-                        <Style TargetType="{x:Type inputComponents:InputComponent}">
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding Path=InputCompomnent.Text}">
-                                    
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
+                            <Style BasedOn="{StaticResource StyleButtonRegister}"
+                                   TargetType="Button">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=InputFirstName,Path=IsEmpty}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False"/>
+                                    </DataTrigger> 
+                                    <DataTrigger Binding="{Binding ElementName=InputLastName,Path=IsEmpty}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False"/>
+                                    </DataTrigger> 
+                                    <DataTrigger Binding="{Binding ElementName=InputEmail,Path=IsEmpty}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False"/>
+                                    </DataTrigger> 
+                                    <DataTrigger Binding="{Binding ElementName=InputPhoneNumber,Path=IsEmpty}" Value="False">
+                                        <Setter Property="IsEnabled" Value="False"/>
+                                    </DataTrigger> 
+                                    <!--TODO FIX PASSWORDBOX TRIGGER-->
+                                    <!--<DataTrigger Binding="{Binding ElementName=InputPasswordBox,Path=Password}" Value="">
+                                        <Setter Property="IsEnabled" Value="False"/>
+                                    </DataTrigger> -->
+                                </Style.Triggers>                                
+                            </Style>
                     </Button.Resources>
                 </Button>
             </StackPanel>

@@ -25,19 +25,15 @@
     <Style x:Key="StyleButtonRegister"
            BasedOn="{StaticResource StyleDefaultButton}"
            TargetType="{x:Type Button}">
+        <Setter Property="IsEnabled" Value="True"/>
     </Style>
     <Style x:Key="StyleButtonClear"
            BasedOn="{StaticResource StyleDefaultButton}"
            TargetType="{x:Type Button}">
         <Style.Setters>
              <Setter Property="Background" Value="DarkSlateBlue"/>
+             <Setter Property="IsEnabled" Value="True"/>
         </Style.Setters>
-        <!--TODO FIX CLEAR BUTTON-->
-        <Style.Triggers>
-            <DataTrigger Binding="{Binding ElementName=StyleTextBox,Path=Text}" Value="">
-                <Setter Property="IsEnabled" Value="False"/>
-            </DataTrigger>
-        </Style.Triggers>
     </Style>
     <Style x:Key="StyleHyperText"
            TargetType="{x:Type TextBlock}">
