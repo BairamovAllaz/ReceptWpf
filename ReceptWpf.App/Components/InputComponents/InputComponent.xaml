@@ -17,6 +17,7 @@
                  wpf:HintAssist.Hint="{Binding LabelName}"
                  wpf:HintAssist.Foreground="DarkViolet"
                  wpf:TextFieldAssist.UnderlineBrush="DarkViolet"
-                 Style="{StaticResource StyleTextBox}"/>
+                 Style="{StaticResource StyleTextBox}">
+        </TextBox>
     </StackPanel>
 </UserControl>

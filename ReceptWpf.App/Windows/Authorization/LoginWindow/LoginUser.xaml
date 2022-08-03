@@ -8,7 +8,8 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="LoginUser" Height="410" Width="350"
-        ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        DataContext="{Binding RelativeSource={x:Static RelativeSource.Self}}">
     <Window.Resources>
         <ResourceDictionary Source="LoginUserStyle.xaml"/>
     </Window.Resources>
@@ -70,7 +71,7 @@
         <StackPanel HorizontalAlignment="Right">
             <TextBlock Style="{StaticResource StyleHyperText}">
                 <Hyperlink Click="Hyperlink_OnClick">
-                    Do not have an account?
+                    Dont have an account?
                 </Hyperlink>
             </TextBlock>
         </StackPanel>
