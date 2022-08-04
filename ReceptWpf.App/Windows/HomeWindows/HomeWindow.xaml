@@ -3,15 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:local="clr-namespace:ReceptWpf.App.Windows.HomeWindows"
+        xmlns:components="clr-namespace:ReceptWpf.App.Components"
         mc:Ignorable="d"
         Title="HomeWindow" Height="450" Width="800"
         DataContext="{Binding RelativeSource={x:Static RelativeSource.Self}}">
     <StackPanel>
-        <TextBlock Text="{Binding user.FirstName}"/>
-        <TextBlock Text="{Binding user.LastName}"/>
-        <TextBlock Text="{Binding user.Email}"/>
-        <TextBlock Text="{Binding user.Phone_number}"/>
-        <TextBlock Text="{Binding user.Password}"/>
+        <components:NavbarComponent/>
     </StackPanel>
 </Window>

@@ -25,7 +25,7 @@ public partial class LoginUser : Window
         var user = userDatabase.GetUser(logindUser);
         if (user is not null)
         {
-            UserToJson.SaveToJsonFile(user:user);
+            UserConfig.SaveToJsonFile(user:user);
             new HomeWindow().Show();
             this.Close();
         }

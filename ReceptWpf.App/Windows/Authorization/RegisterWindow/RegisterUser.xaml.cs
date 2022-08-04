@@ -33,7 +33,7 @@ public partial class RegisterUser : Window
         int result = userDatabase.InsertUser(user);
         if (result == 1)
         {
-            UserToJson.SaveToJsonFile(user:user);
+            UserConfig.SaveToJsonFile(user:user);
             new HomeWindow().Show();
             this.Close();
         }

@@ -11,7 +11,7 @@ public partial class HomeWindow : Window
     public User? user { get; set; }
     public HomeWindow()
     {
-        user = UserToJson.GetUserFromJsonFile();
+        user = UserConfig.GetUserFromJsonFile();
         InitializeComponent();
     }
 }

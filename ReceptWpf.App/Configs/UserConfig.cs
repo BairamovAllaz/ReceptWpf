@@ -5,7 +5,7 @@ using ReceptWpf;
 
 namespace ReceptWpf.App.Configs;
 
-public static class UserToJson
+public static class UserConfig
 {
     private static string _filename = "UserData.json";
     
