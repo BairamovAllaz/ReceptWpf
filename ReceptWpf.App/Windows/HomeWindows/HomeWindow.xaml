@@ -5,7 +5,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:components="clr-namespace:ReceptWpf.App.Components"
         xmlns:pages="clr-namespace:ReceptWpf.App.Components.NavPages"
-        xmlns:navbar="clr-namespace:ReceptWpf.App.Components.Navbar"
         xmlns:local="clr-namespace:ReceptWpf.App.Windows.HomeWindows"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
