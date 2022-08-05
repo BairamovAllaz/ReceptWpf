@@ -1,0 +1,50 @@
+﻿using System.ComponentModel;
+using System.IO;
+using System.Runtime.CompilerServices;
+using System.Windows.Automation;
+using System.Windows.Input;
+using ReceptWpf.App.Components.NavPages;
+
+namespace ReceptWpf.App.Windows.HomeWindows;
+
+public class NavigationViewModel : INotifyPropertyChanged
+{
+    public ICommand AboutCommand { get; set; }
+    public ICommand HomeCommand { get; set; }
+    public ICommand UserCommand { get; set; }
+    private object _selectedViewModel;
+
+    public NavigationViewModel()
+    {
+        AboutCommand = new BaseCommand(OpenAbout);
+        HomeCommand = new BaseCommand(OpenHome);
+        UserCommand = new BaseCommand(OpenUser);
+    }
+    public object SelectedViewModel
+    {
+        get { return _selectedViewModel; }
+        set
+        {
+            if(_selectedViewModel == value) return;
+            _selectedViewModel = value; 
+            OnPropertyChanged(nameof(SelectedViewModel));
+        }
+    }
+    private void OpenAbout(object obj)
+    {
+        SelectedViewModel = new About();
+    }
+    private void OpenHome(object obj)
+    {
+        SelectedViewModel = new Home();
+    }
+    private void OpenUser(object obj)
+    {
+        SelectedViewModel = new User();
+    }
+    public event PropertyChangedEventHandler? PropertyChanged;
+    protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+}

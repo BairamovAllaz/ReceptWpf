@@ -4,10 +4,61 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:components="clr-namespace:ReceptWpf.App.Components"
+        xmlns:pages="clr-namespace:ReceptWpf.App.Components.NavPages"
+        xmlns:navbar="clr-namespace:ReceptWpf.App.Components.Navbar"
+        xmlns:local="clr-namespace:ReceptWpf.App.Windows.HomeWindows"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="HomeWindow" Height="450" Width="800"
-        DataContext="{Binding RelativeSource={x:Static RelativeSource.Self}}">
+        Title="HomeWindow" Height="650" Width="1000">
+    <Window.DataContext>
+        <local:NavigationViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type pages:About}">
+            <pages:About/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type pages:Home}">
+            <pages:Home/>
+        </DataTemplate>  
+        <DataTemplate DataType="{x:Type pages:User}">
+            <pages:User/>
+        </DataTemplate>
+    </Window.Resources>
     <StackPanel>
-        <components:NavbarComponent/>
+       <TabControl 
+            Style="{StaticResource MaterialDesignNavigatilRailTabControl}" 
+            TabStripPlacement="Top"
+            materialDesign:ShadowAssist.ShadowDepth="Depth3" 
+            materialDesign:ColorZoneAssist.Mode="PrimaryDark"
+            materialDesign:NavigationRailAssist.SelectionCornerRadius="50 10 10 10">
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock>
+                        <Hyperlink Command="{Binding HomeCommand}"
+                                   Foreground="White"
+                                   TextDecorations="">Home</Hyperlink>
+                    </TextBlock>
+                </TabItem.Header>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock>
+                        <Hyperlink Command="{Binding UserCommand}" 
+                                   Foreground="White"
+                                   TextDecorations="">User</Hyperlink>
+                    </TextBlock>
+                </TabItem.Header>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock>
+                        <Hyperlink Command="{Binding AboutCommand}"
+                                   Foreground="White"
+                                   TextDecorations="">About</Hyperlink>
+                    </TextBlock>
+                </TabItem.Header>
+            </TabItem>
+        </TabControl>
+        <ContentControl x:Name="Pages" Content="{Binding SelectedViewModel}"/>
     </StackPanel>
 </Window>

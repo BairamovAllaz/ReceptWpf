@@ -13,5 +13,6 @@ public partial class HomeWindow : Window
     {
         user = UserConfig.GetUserFromJsonFile();
         InitializeComponent();
+        this.DataContext = new NavigationViewModel();
     }
 }
