@@ -5,6 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:components="clr-namespace:ReceptWpf.App.Components"
         xmlns:pages="clr-namespace:ReceptWpf.App.Components.NavPages"
+        xmlns:create="clr-namespace:ReceptWpf.App.Components.NavPages.CreatePage"
         xmlns:local="clr-namespace:ReceptWpf.App.Windows.HomeWindows"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
@@ -21,6 +22,9 @@
         </DataTemplate>  
         <DataTemplate DataType="{x:Type pages:User}">
             <pages:User/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type create:CreatePage}">
+            <create:CreatePage/>
         </DataTemplate>
     </Window.Resources>
     <StackPanel>
@@ -57,6 +61,15 @@
                     </TextBlock>
                 </TabItem.Header>
             </TabItem>
+           <TabItem>
+               <TabItem.Header>
+                   <TextBlock>
+                       <Hyperlink Command="{Binding CreateCommand}"
+                                  Foreground="White"
+                                  TextDecorations="">Create</Hyperlink>
+                   </TextBlock>
+               </TabItem.Header>
+           </TabItem>
         </TabControl>
         <ContentControl x:Name="Pages" Content="{Binding SelectedViewModel}"/>
     </StackPanel>

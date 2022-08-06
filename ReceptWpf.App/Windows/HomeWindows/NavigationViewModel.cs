@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Windows.Automation;
 using System.Windows.Input;
 using ReceptWpf.App.Components.NavPages;
+using ReceptWpf.App.Components.NavPages.CreatePage;
 
 namespace ReceptWpf.App.Windows.HomeWindows;
 
@@ -12,17 +13,20 @@ public class NavigationViewModel : INotifyPropertyChanged
     public ICommand AboutCommand { get; set; }
     public ICommand HomeCommand { get; set; }
     public ICommand UserCommand { get; set; }
-    private object _selectedViewModel;
+    public ICommand CreateCommand { get; set; }
+    private object? _selectedViewModel;
 
     public NavigationViewModel()
     {
         AboutCommand = new BaseCommand(OpenAbout);
         HomeCommand = new BaseCommand(OpenHome);
         UserCommand = new BaseCommand(OpenUser);
+        CreateCommand = new BaseCommand(OpenCreate);
+        SelectedViewModel = new Home(); //navigate to start page 
     }
     public object SelectedViewModel
     {
-        get { return _selectedViewModel; }
+        get => _selectedViewModel;
         set
         {
             if(_selectedViewModel == value) return;
@@ -41,6 +45,10 @@ public class NavigationViewModel : INotifyPropertyChanged
     private void OpenUser(object obj)
     {
         SelectedViewModel = new User();
+    }
+    private void OpenCreate(object opj)
+    {
+        SelectedViewModel = new CreatePage();
     }
     public event PropertyChangedEventHandler? PropertyChanged;
     protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
