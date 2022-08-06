@@ -1,16 +1,12 @@
 ﻿using System.Data;
 using Microsoft.Data.Sqlite;
+using Models.DBconfig;
 using Models.UserDB.User_Models;
 
 namespace Models.UserDB;
-public class UserDatabase
+public class UserDatabase : Db
 {
-    private readonly string? connstring = "Data Source=Database.db;";
-    private SqliteConnection _db;
-    public UserDatabase()
-    {
-        _db = new SqliteConnection(connstring);
-    }
+    public UserDatabase() : base() {}
     public int InsertUser(User user)
     {
         _db.Open();

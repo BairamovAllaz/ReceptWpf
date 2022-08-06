@@ -1,6 +1,19 @@
-﻿namespace Models.FoodDB;
+﻿using Microsoft.Data.Sqlite;
+using Models.DBconfig;
+using Models.FoodDB.FoodModels;
 
-public class FoodDatabase
+namespace Models.FoodDB;
+
+public class FoodDatabase : Db
 {
-    ///implement database operations with Food Database
+    public FoodDatabase() : base() {}
+    public int InsertFood(Food food)
+    {
+        _db.Open();
+        string sql = @$"INSERT INTO Food(preparation_time,difficulty_food,created_time,food_photo,food_title,ingredients,pretensions,created_by) VALUES ('{food.PreparationTime}','{food.DifficultyFood}','{food.CreatedTime}','{food.FoodPhoto}','{food.FoodTittle}','{food.Ingredients}','{food.Pretensions}','{food.CreatedBy}')";
+        SqliteCommand command = new SqliteCommand(sql,_db);
+        var result = command.ExecuteNonQuery();
+        _db.Close();
+        return result; 
+    }
 }
