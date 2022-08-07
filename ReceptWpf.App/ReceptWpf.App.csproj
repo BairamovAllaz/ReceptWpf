@@ -15,4 +15,9 @@
       <ProjectReference Include="..\ReceptWpf.Models\ReceptWpf.Models.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Include="bin\Debug\net6.0-windows\default.png" />
+      <None Include="bin\Debug\net6.0-windows\default2.png" />
+    </ItemGroup>
+
 </Project>
