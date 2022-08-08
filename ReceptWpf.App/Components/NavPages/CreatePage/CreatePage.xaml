@@ -13,7 +13,7 @@
     <Grid Style="{StaticResource DefaultGrid}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0"
                         Style="{StaticResource StyleImageStackPanel}">
@@ -26,8 +26,24 @@
                         Style="{StaticResource MaterialDesignFlatButton}"
                         Click="ChangePhotoButton_OnClick"/>
                 <TextBox x:Name="TitleBox"
-                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         Style="{StaticResource StyleTextBoxTitle}"
                          materialDesign:HintAssist.Hint="Title"/>
+                <TextBox x:Name="CountryBox"
+                         Style="{StaticResource StyleTextBoxTitle}"
+                         materialDesign:HintAssist.Hint="Country"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="TimePickerTextBox"
+                             Style="{StaticResource StyleTextBoxTimePicker}"
+                             materialDesign:HintAssist.Hint="PreTime-Minute"/>
+                    <ComboBox  x:Name="ComboBox"
+                               Style="{StaticResource ComboBoxStyle}">  
+                        <ComboBoxItem Content="Very Easy"/>  
+                        <ComboBoxItem Content="Easy"/>  
+                        <ComboBoxItem Content="Normal"/>  
+                        <ComboBoxItem Content="Hard"/>  
+                        <ComboBoxItem Content="Very Hard"/>  
+                    </ComboBox>  
+                </StackPanel>
                 </StackPanel>
             </StackPanel>
             <StackPanel Grid.Column="1">

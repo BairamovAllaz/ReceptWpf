@@ -14,7 +14,6 @@ public partial class CreatePage : UserControl
     public Models.UserDB.User_Models.User User{ get; set; }
     public CreatePage()
     {
-        //TODO FIX IMAGE PROBLEM
         InitializeComponent();
         var url = $@"{Directory.GetCurrentDirectory()}\default2.png";
         PhotoPlace.Source = new BitmapImage(new Uri(url));
@@ -25,7 +24,7 @@ public partial class CreatePage : UserControl
         file.Filter = "Image files (*.png;*.jpeg)|*.png;*.jpeg|All files (*.*)|*.*";
         file.ShowDialog();
         _photo = file.FileName;
-        if(_photo is null)
+        if(!(string.IsNullOrEmpty(_photo)))
         {
             PhotoPlace.Source = new BitmapImage(new Uri(_photo));
         }
