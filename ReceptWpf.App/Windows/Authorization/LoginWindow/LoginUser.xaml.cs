@@ -47,8 +47,8 @@ public partial class LoginUser : Window
     {
         return new Models.UserDB.User_Models.LoginUser()
         {
-            Email = InputEmail.InputMy.Text,
-            Password = InputPasswordBox.Password
+            Email = InputEmail.InputMy.Text.Trim(),
+            Password = InputPasswordBox.Password.Trim()
         };
     }
 }

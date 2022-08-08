@@ -2,6 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.button.xaml" />
     </ResourceDictionary.MergedDictionaries>
     <Style x:Key="DefaultGrid"
            TargetType="{x:Type Grid}">
@@ -40,5 +41,21 @@
         <Setter Property="Width" Value="150"/>
         <Setter Property="Height" Value="30"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
+    </Style>
+    
+    <Style x:Key="StyleIngreditens"
+           BasedOn="{StaticResource MaterialDesignFilledTextBox}"
+           TargetType="{x:Type TextBox}">
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="Width" Value="300"/>
+        <Setter Property="Height" Value="60"/>
+    </Style>
+    
+    <Style x:Key="StyleButtonAdd"
+           BasedOn="{StaticResource MaterialDesignRaisedDarkButton}"
+           TargetType="{x:Type Button}">
+        <Setter Property="Height" Value="60"/>
+        <Setter Property="Width" Value="70"/>
+        <Setter Property="Margin" Value="20,0,0,0"/>
     </Style>
 </ResourceDictionary>

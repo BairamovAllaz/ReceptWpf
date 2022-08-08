@@ -43,11 +43,11 @@ public partial class RegisterUser : Window
     {
         return new User
         {
-            FirstName = InputFirstName.InputMy.Text,
-            LastName = InputLastName.InputMy.Text,
-            Email = InputEmail.InputMy.Text,
-            Phone_number = InputPhoneNumber.InputMy.Text,
-            Password = InputPasswordBox.Password
+            FirstName = InputFirstName.InputMy.Text.Trim(),
+            LastName = InputLastName.InputMy.Text.Trim(),
+            Email = InputEmail.InputMy.Text.Trim(),
+            Phone_number = InputPhoneNumber.InputMy.Text.Trim(),
+            Password = InputPasswordBox.Password.Trim()
         };
     }
     private void Clear()
