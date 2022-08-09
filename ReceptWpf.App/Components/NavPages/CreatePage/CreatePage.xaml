@@ -46,34 +46,43 @@
                 </StackPanel>
                 </StackPanel>
             </StackPanel>
-            <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+            <StackPanel Grid.Column="1" HorizontalAlignment="Center" Margin="80,0,0,0">
                 <StackPanel Orientation="Horizontal" Margin="0,40,0,0">
                     <TextBox  x:Name="IngredientsTextBox"
                               Style="{StaticResource StyleIngreditens}"
                               materialDesign:HintAssist.Hint="Ingredients"/>
                     <Button Content="Add"
                             Style="{StaticResource StyleButtonAdd}"/>
+                    <Button Content="Remove"
+                            Style="{StaticResource StyleButtonAdd}"/>
                 </StackPanel>
-                <ScrollViewer HorizontalAlignment="Left" Background="Green" Height="299"  VerticalAlignment="Top" Width="188" VerticalScrollBarVisibility="Auto">
-                    <StackPanel x:Name="stackPanelVistaProfiloTessera"  Background="RoyalBlue" >
-                        <Label Height="30" Width="100" Margin="5">label1</Label>
-                        <Label Height="30" Width="100" Margin="5">label1</Label>
-                        <Label Height="30" Width="100" Margin="5">label1</Label>
-                        <Label Height="30" Width="100" Margin="5">label1</Label>
-                        <Label Height="30" Width="100" Margin="5">label1</Label>
-                        <Label Height="30" Width="100" Margin="5">label1</Label>
-                        <Label Height="30" Width="100" Margin="5">label1</Label>
-                        <Label Height="30" Width="100" Margin="5">label1</Label>
-                        <Label Height="30" Width="100" Margin="5">label1</Label>
-                        <Label Height="30" Width="100" Margin="5">label1</Label>
-                        <Label Height="30" Width="100" Margin="5">label1</Label>
-                        <Label Height="30" Width="100" Margin="5">label1</Label>
-                        <Label Height="30" Width="100" Margin="5">label1</Label>
-                        <Label Height="30" Width="100" Margin="5">label1</Label>
-                        <Label Height="30" Width="100" Margin="5">label1</Label>
-                        <Label Height="30" Width="100" Margin="5">label1</Label>
+                <ScrollViewer Style="{StaticResource StyleScrollViewer}">
+                    <StackPanel x:Name="StackPanelVista">
+                        <TextBlock Height="30" Width="300" Margin="5">label1</TextBlock>
+                        <TextBlock Height="30" Width="300" Margin="5">label1</TextBlock>
+                        <TextBlock Height="30" Width="300" Margin="5">label1</TextBlock>
+                        <TextBlock Height="30" Width="300" Margin="5">label1</TextBlock>
+                        <TextBlock Height="30" Width="300" Margin="5">label1</TextBlock>
+                        <TextBlock Height="30" Width="300" Margin="5">label1</TextBlock>
+                        <TextBlock Height="30" Width="300" Margin="5">label1</TextBlock>
+                        <TextBlock Height="30" Width="300" Margin="5">label1</TextBlock>
+                        <TextBlock Height="30" Width="300" Margin="5">label1</TextBlock>
+                        <TextBlock Height="30" Width="300" Margin="5">label1</TextBlock>
+                        <TextBlock Height="30" Width="300" Margin="5">label1</TextBlock>
+                        <TextBlock Height="30" Width="300" Margin="5">label1</TextBlock>
+                        <TextBlock Height="30" Width="300" Margin="5">label1</TextBlock>
                     </StackPanel>
                 </ScrollViewer>
+            <TextBox x:Name="PretensionsTextBox" Style="{StaticResource StyleTextBoxPretensions}"/>
+            <StackPanel>
+                <!--TODO FIX BUTTON SAVE STYLE-->
+                <Button x:Name="SaveButton"
+                        Content="Save"
+                        HorizontalAlignment="Right"
+                        Width="70"
+                        Height="40"
+                        Margin="0,40,60,0"/>
+            </StackPanel>
             </StackPanel>
         </Grid>
 </UserControl>
