@@ -78,4 +78,12 @@
         <Setter Property="FontSize" Value="15"/>
     </Style>
     
+     <Style x:Key="StyleSaveButton"
+               BasedOn="{StaticResource MaterialDesignRaisedDarkButton}"
+               TargetType="{x:Type Button}">
+         <Setter Property="Height" Value="40"/>
+         <Setter Property="Margin" Value="0,40,100,0"/>
+         <Setter Property="HorizontalAlignment" Value="Stretch"/>
+     </Style>
+    
 </ResourceDictionary>

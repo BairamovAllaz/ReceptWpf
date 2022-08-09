@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:ReceptWpf.App.Components.NavPages.CreatePage"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="1000">
+             d:DesignHeight="300" d:DesignWidth="1000"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}">
     <UserControl.Resources>
         <ResourceDictionary Source="CreatePageStyle.xaml"/>
     </UserControl.Resources>
@@ -52,36 +53,25 @@
                               Style="{StaticResource StyleIngreditens}"
                               materialDesign:HintAssist.Hint="Ingredients"/>
                     <Button Content="Add"
-                            Style="{StaticResource StyleButtonAdd}"/>
-                    <Button Content="Remove"
-                            Style="{StaticResource StyleButtonAdd}"/>
+                            Style="{StaticResource StyleButtonAdd}"
+                            Click="ButtonAddOnclick"/>
+                    <Button x:Name="RemoveButton"
+                            Content="Remove"
+                            Style="{StaticResource StyleButtonAdd}"
+                            Click="RemoveButton_OnClick"/>
                 </StackPanel>
-                <ScrollViewer Style="{StaticResource StyleScrollViewer}">
-                    <StackPanel x:Name="StackPanelVista">
-                        <TextBlock Height="30" Width="300" Margin="5">label1</TextBlock>
-                        <TextBlock Height="30" Width="300" Margin="5">label1</TextBlock>
-                        <TextBlock Height="30" Width="300" Margin="5">label1</TextBlock>
-                        <TextBlock Height="30" Width="300" Margin="5">label1</TextBlock>
-                        <TextBlock Height="30" Width="300" Margin="5">label1</TextBlock>
-                        <TextBlock Height="30" Width="300" Margin="5">label1</TextBlock>
-                        <TextBlock Height="30" Width="300" Margin="5">label1</TextBlock>
-                        <TextBlock Height="30" Width="300" Margin="5">label1</TextBlock>
-                        <TextBlock Height="30" Width="300" Margin="5">label1</TextBlock>
-                        <TextBlock Height="30" Width="300" Margin="5">label1</TextBlock>
-                        <TextBlock Height="30" Width="300" Margin="5">label1</TextBlock>
-                        <TextBlock Height="30" Width="300" Margin="5">label1</TextBlock>
-                        <TextBlock Height="30" Width="300" Margin="5">label1</TextBlock>
-                    </StackPanel>
+                <ScrollViewer x:Name="ScrollViewerBox" Style="{StaticResource StyleScrollViewer}">
+                    <ListBox x:Name="StackPanelVista"
+                             ItemsSource="{Binding ListOfAddedIngredients}"
+                             FontSize="20"/>
                 </ScrollViewer>
+                <!--TODO CHANGE TEXTBOX TO RICHTEXTBOX-->
             <TextBox x:Name="PretensionsTextBox" Style="{StaticResource StyleTextBoxPretensions}"/>
             <StackPanel>
-                <!--TODO FIX BUTTON SAVE STYLE-->
                 <Button x:Name="SaveButton"
                         Content="Save"
-                        HorizontalAlignment="Right"
-                        Width="70"
-                        Height="40"
-                        Margin="0,40,60,0"/>
+                        Style="{StaticResource StyleSaveButton}"
+                        Click="SaveButton_OnClick"/>
             </StackPanel>
             </StackPanel>
         </Grid>
