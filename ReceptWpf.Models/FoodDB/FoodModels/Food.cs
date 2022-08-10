@@ -5,6 +5,7 @@ public class Food
     public string? DifficultyFood { get; set; }
     public string? CreatedTime { get; set; }
     public string? FoodPhoto { get; set; }
+    public string? Country { get; set; }
     public string? FoodTittle { get; set; }
     public string? Ingredients { get; set; }
     public string? Pretensions { get; set; }

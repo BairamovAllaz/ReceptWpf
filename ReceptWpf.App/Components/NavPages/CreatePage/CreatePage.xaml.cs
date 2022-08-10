@@ -11,7 +11,6 @@ using System.Windows.Media.Imaging;
 using Microsoft.Win32;
 using Models.FoodDB;
 using Models.FoodDB.FoodModels;
-using Models.UserDB.User_Models;
 using ReceptWpf.App.Configs;
 
 namespace ReceptWpf.App.Components.NavPages.CreatePage;
@@ -66,8 +65,17 @@ public partial class CreatePage : UserControl,INotifyPropertyChanged
         var food = CreateFoodObj();
         FoodDatabase foodDatabase = new FoodDatabase();
         int result = foodDatabase.InsertFood(food);
-        if (result == 1) MessageBox.Show("Adding done");
+        if (result == 1) MessageBox.Show("Adding done","Info",MessageBoxButton.OK,MessageBoxImage.Information);
+        FilesButtonSaveClick(food);
         ClearAll();
+    }
+
+    private void FilesButtonSaveClick(Food food)
+    {
+        var ext = _photo?.Substring(_photo.LastIndexOf('.'));
+        File.Copy(_photo, $@"C:\PhotosWpf\{food.FoodTittle}_{food.CreatedBy}{ext}", true);
+        var url = $@"{Directory.GetCurrentDirectory()}\default2.png";
+        PhotoPlace.Source = new BitmapImage(new Uri(url));
     }
 
     private Food CreateFoodObj()
@@ -80,16 +88,18 @@ public partial class CreatePage : UserControl,INotifyPropertyChanged
             FoodTittle = TitleBox.Text,
             DifficultyFood = ComboBox.SelectionBoxItem.ToString(),
             Ingredients = GetIngredients(),
+            Country = CountryBox.Text,
             Pretensions = PretensionsTextBox.Text,
-            CreatedBy = User.FirstName  
+            CreatedBy = User.FirstName 
         };
     }
     private string GetIngredients()
     {
         StringBuilder stringBuffer = new StringBuilder();
-        foreach (var v in ListOfAddedIngredients)
+        for (int i = 0; i < ListOfAddedIngredients.Count; i++)
         {
-            stringBuffer.Append(", " + v);
+            if (i == 0) stringBuffer.Append(ListOfAddedIngredients[i]); //if first element then just add without ,
+            else stringBuffer.Append(", " + ListOfAddedIngredients[i]);
         }
         return stringBuffer.ToString();
     }
@@ -99,6 +109,8 @@ public partial class CreatePage : UserControl,INotifyPropertyChanged
         TimePickerTextBox.Clear();
         TitleBox.Clear();
         PretensionsTextBox.Clear();
+        CountryBox.Clear();
+        ListOfAddedIngredients.Clear();
     }
     public event PropertyChangedEventHandler? PropertyChanged;
     protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)

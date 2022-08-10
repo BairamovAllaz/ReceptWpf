@@ -70,8 +70,31 @@
             <StackPanel>
                 <Button x:Name="SaveButton"
                         Content="Save"
-                        Style="{StaticResource StyleSaveButton}"
-                        Click="SaveButton_OnClick"/>
+                        Click="SaveButton_OnClick">
+                    <Button.Resources>
+                    <Style
+                        BasedOn="{StaticResource StyleSaveButton}"
+                        TargetType="{x:Type Button}">
+                        <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=TitleBox,Path=Text}" Value="">
+                                    <Setter Property="IsEnabled" Value="False"/>
+                                </DataTrigger> 
+                                <DataTrigger Binding="{Binding ElementName=CountryBox,Path=Text}" Value="">
+                                    <Setter Property="IsEnabled" Value="False"/>
+                                </DataTrigger> 
+                                <DataTrigger Binding="{Binding ElementName=TimePickerTextBox,Path=Text}" Value="">
+                                    <Setter Property="IsEnabled" Value="False"/>
+                                </DataTrigger> 
+                                <DataTrigger Binding="{Binding ElementName=PretensionsTextBox,Path=Text}" Value="">
+                                    <Setter Property="IsEnabled" Value="False"/>
+                                </DataTrigger> 
+                                <DataTrigger Binding="{Binding ListOfAddedIngredients.Count}" Value="0">
+                                    <Setter Property="IsEnabled" Value="False"/>
+                                </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                    </Button.Resources>
+                </Button>
             </StackPanel>
             </StackPanel>
         </Grid>

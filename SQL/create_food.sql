@@ -4,6 +4,7 @@ CREATE TABLE Food(
      difficulty_food TEXT NOT NULL,
      created_time TEXT NOT NULL,
      food_photo TEXT NOT NULL,
+     country TEXT NOT NULL,
      food_title TEXT NOT NULL,
      ingredients TEXT NOT NULL,
      pretensions TEXT NOT NULL,

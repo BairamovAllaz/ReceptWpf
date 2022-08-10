@@ -17,6 +17,7 @@ public class FoodDatabaseTest
             FoodPhoto = "urlnothing",
             CreatedBy = "Bairamov Allaz",
             PreparationTime = "25",
+            Country = "Russia",
             DifficultyFood = "Easy",
             CreatedTime = Convert.ToString(DateTime.Now, CultureInfo.InvariantCulture),
             Ingredients = "1 tbsp olive oil,1 onion-finely chopped,1 tsp caster sugar",

@@ -84,6 +84,7 @@
          <Setter Property="Height" Value="40"/>
          <Setter Property="Margin" Value="0,40,100,0"/>
          <Setter Property="HorizontalAlignment" Value="Stretch"/>
+         <Setter Property="IsEnabled" Value="True"/>
      </Style>
     
 </ResourceDictionary>
