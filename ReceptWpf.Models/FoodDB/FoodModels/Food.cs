@@ -9,4 +9,5 @@ public class Food
     public string? Ingredients { get; set; }
     public string? Pretensions { get; set; }
     public string? CreatedBy { get; set; }
+
 }

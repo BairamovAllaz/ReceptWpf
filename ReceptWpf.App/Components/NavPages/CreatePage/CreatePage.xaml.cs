@@ -12,6 +12,7 @@ using Microsoft.Win32;
 using Models.FoodDB;
 using Models.FoodDB.FoodModels;
 using Models.UserDB.User_Models;
+using ReceptWpf.App.Configs;
 
 namespace ReceptWpf.App.Components.NavPages.CreatePage;
 
@@ -20,12 +21,13 @@ public partial class CreatePage : UserControl,INotifyPropertyChanged
     private string? _photo;
     public ObservableCollection<string> ListOfAddedIngredients { get; set;  }
     private string _firstdefautllistvalue = "THERE IS NO ELEMENT"; 
-    public Models.UserDB.User_Models.User User{ get; set; }
+    public Models.UserDB.User_Models.User? User{ get; set; }
     public CreatePage()
     {
         ListOfAddedIngredients = new ObservableCollection<string>();
         ListOfAddedIngredients.Add(_firstdefautllistvalue);
         InitializeComponent();
+        User = UserConfig.GetUserFromJsonFile();
         var url = $@"{Directory.GetCurrentDirectory()}\default2.png";
         PhotoPlace.Source = new BitmapImage(new Uri(url));
     }
@@ -61,9 +63,17 @@ public partial class CreatePage : UserControl,INotifyPropertyChanged
     }
     private void SaveButton_OnClick(object sender, RoutedEventArgs e)
     {
-        /*FIX NULL REFERENCE ERROR*/
-        Food food = new Food()
-        {   
+        var food = CreateFoodObj();
+        FoodDatabase foodDatabase = new FoodDatabase();
+        int result = foodDatabase.InsertFood(food);
+        if (result == 1) MessageBox.Show("Adding done");
+        ClearAll();
+    }
+
+    private Food CreateFoodObj()
+    {
+        return new Food
+        {
             PreparationTime = TimePickerTextBox.Text,
             CreatedTime = new DateTime().Date.ToString(CultureInfo.InvariantCulture),
             FoodPhoto = _photo,
@@ -71,11 +81,8 @@ public partial class CreatePage : UserControl,INotifyPropertyChanged
             DifficultyFood = ComboBox.SelectionBoxItem.ToString(),
             Ingredients = GetIngredients(),
             Pretensions = PretensionsTextBox.Text,
-            CreatedBy = User.FirstName
+            CreatedBy = User.FirstName  
         };
-        FoodDatabase foodDatabase = new FoodDatabase();
-        int result = foodDatabase.InsertFood(food);
-        if (result == 1) MessageBox.Show("Adding done");
     }
     private string GetIngredients()
     {
@@ -85,6 +92,13 @@ public partial class CreatePage : UserControl,INotifyPropertyChanged
             stringBuffer.Append(", " + v);
         }
         return stringBuffer.ToString();
+    }
+
+    private void ClearAll()
+    {
+        TimePickerTextBox.Clear();
+        TitleBox.Clear();
+        PretensionsTextBox.Clear();
     }
     public event PropertyChangedEventHandler? PropertyChanged;
     protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)

@@ -29,7 +29,6 @@ public partial class LoginUser : Window
             new HomeWindow().Show();
             this.Close();
         }
-        /*TODO ADD ALERT TO INPUT WHEN AUTHENATION FAIL*/
         else InitErrorInput();
     }
     public void InitErrorInput()
