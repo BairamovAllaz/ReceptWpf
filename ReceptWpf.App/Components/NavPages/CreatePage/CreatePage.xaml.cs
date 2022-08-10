@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Globalization;
 using System.IO;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,10 +10,8 @@ using Microsoft.Win32;
 using Models.FoodDB;
 using Models.FoodDB.FoodModels;
 using ReceptWpf.App.Configs;
-
 namespace ReceptWpf.App.Components.NavPages.CreatePage;
-
-public partial class CreatePage : UserControl,INotifyPropertyChanged
+public partial class CreatePage : UserControl
 {
     private string? _photo;
     public ObservableCollection<string> ListOfAddedIngredients { get; set;  }
@@ -80,17 +76,18 @@ public partial class CreatePage : UserControl,INotifyPropertyChanged
 
     private Food CreateFoodObj()
     {
+        var ext = _photo?.Substring(_photo.LastIndexOf('.'));
         return new Food
         {
             PreparationTime = TimePickerTextBox.Text,
             CreatedTime = new DateTime().Date.ToString(CultureInfo.InvariantCulture),
-            FoodPhoto = _photo,
+            FoodPhoto = $@"C:\PhotosWpf\{TitleBox.Text}_{User?.FirstName}{ext}",
             FoodTittle = TitleBox.Text,
             DifficultyFood = ComboBox.SelectionBoxItem.ToString(),
             Ingredients = GetIngredients(),
             Country = CountryBox.Text,
             Pretensions = PretensionsTextBox.Text,
-            CreatedBy = User.FirstName 
+            CreatedBy = User?.FirstName 
         };
     }
     private string GetIngredients()
@@ -103,7 +100,6 @@ public partial class CreatePage : UserControl,INotifyPropertyChanged
         }
         return stringBuffer.ToString();
     }
-
     private void ClearAll()
     {
         TimePickerTextBox.Clear();
@@ -111,10 +107,5 @@ public partial class CreatePage : UserControl,INotifyPropertyChanged
         PretensionsTextBox.Clear();
         CountryBox.Clear();
         ListOfAddedIngredients.Clear();
-    }
-    public event PropertyChangedEventHandler? PropertyChanged;
-    protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }
