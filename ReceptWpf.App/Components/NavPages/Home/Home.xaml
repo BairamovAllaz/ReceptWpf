@@ -10,14 +10,9 @@
     <UserControl.Resources>
         <ResourceDictionary Source="HomeStyle.xaml"/>
     </UserControl.Resources>
-    <ScrollViewer VerticalScrollBarVisibility="Auto"
-                  Width="1000"
-                  Height="650"
-                  HorizontalAlignment="Left"
-                  VerticalAlignment="Top"
-                  CanContentScroll="False">
+    <ScrollViewer Style="{StaticResource StyleScrollViewer}">
         <WrapPanel  x:Name="Stack"
-                    Style="{StaticResource StyleStack}">
+                    Style="{StaticResource StyleWrapPanel}">
         </WrapPanel>
     </ScrollViewer>
 </UserControl>

@@ -10,9 +10,33 @@
     <UserControl.Resources>
         <ResourceDictionary Source="ShowControlStyle.xaml"/>
     </UserControl.Resources>
+    
     <StackPanel Style="{StaticResource StyleStackPanel}">
         <StackPanel>
             <Image x:Name="ImageStack"/>
         </StackPanel>
+        <StackPanel Orientation="Vertical">
+            <TextBlock 
+                Text="{Binding Foood.FoodTittle}"
+                Style="{StaticResource StyleTextBlock}"/>
+            <TextBlock 
+                Text="{Binding Foood.Country}"
+                Style="{StaticResource StyleTextBlock}"/>
+            <TextBlock 
+                Text="{Binding Foood.CreatedBy}"
+                Style="{StaticResource StyleTextBlock}"/>
+            <TextBlock 
+                Text="{Binding Foood.CreatedTime}"
+                Style="{StaticResource StyleTextBlock}"/>
+            <TextBlock 
+                Text="{Binding Foood.PreparationTime}"
+                Style="{StaticResource StyleTextBlock}"/>
+        </StackPanel>
+        <StackPanel>
+            <Button Content="See.."
+                    HorizontalAlignment="Right"
+                    Margin="0,-10,10,30"/>
+        </StackPanel>
     </StackPanel>
+            
 </UserControl>

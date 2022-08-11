@@ -7,11 +7,11 @@ namespace ReceptWpf.App.Components.NavPages.Show;
 
 public partial class ShowControl : UserControl
 {
-    public Food Food;
+    public Food Foood { get; set; }
     public ShowControl(Food food)
     {
+        Foood = food;
         InitializeComponent();
-        Food = food;
-        ImageStack.Source = new BitmapImage(new Uri(Food.FoodPhoto));
+        ImageStack.Source = new BitmapImage(new Uri(Foood.FoodPhoto));
     }
 }
