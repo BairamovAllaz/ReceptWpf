@@ -4,15 +4,21 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:ReceptWpf.App.Components.NavPages"
-             xmlns:test="clr-namespace:ReceptWpf.App.Components.NavPages.Show"
+             xmlns:homeShow="clr-namespace:ReceptWpf.App.Components.NavPages.HomeShowComponent"
+             xmlns:actuall="clr-namespace:ReceptWpf.App.Components.NavPages.ActuallComponentShow"
+             xmlns:configs="clr-namespace:ReceptWpf.App.Components.NavPages.Home.NavigateConfigs"
              mc:Ignorable="d"
-             d:DesignHeight="750" d:DesignWidth="1000">
+             d:DesignHeight="750" d:DesignWidth="1000"
+             DataContext="{Binding RelativeSource={x:Static RelativeSource.Self}}">
     <UserControl.Resources>
-        <ResourceDictionary Source="HomeStyle.xaml"/>
+            <DataTemplate DataType="{x:Type homeShow:HomeShowComponent}">
+                <homeShow:HomeShowComponent/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type actuall:ActuallComponentShow}">
+                <actuall:ActuallComponentShow/>
+            </DataTemplate>
     </UserControl.Resources>
-    <ScrollViewer Style="{StaticResource StyleScrollViewer}">
-        <WrapPanel  x:Name="Stack"
-                    Style="{StaticResource StyleWrapPanel}">
-        </WrapPanel>
-    </ScrollViewer>
+   <StackPanel>
+       <ContentControl x:Name="Pages" Content="{Binding TypeNavigationViewModel.SelectedViewModel}"/>
+   </StackPanel> 
 </UserControl>

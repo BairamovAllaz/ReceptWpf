@@ -9,7 +9,7 @@ using ReceptWpf.App.Components.NavPages.CreatePage;
 using ReceptWpf.App.Components.NavPages.Home;
 
 namespace ReceptWpf.App.Windows.HomeWindows;
-public class NavigationViewModel : INotifyPropertyChanged
+public sealed class NavigationViewModel : INotifyPropertyChanged
 {
     public ICommand AboutCommand { get; set; }
     public ICommand HomeCommand { get; set; }
@@ -60,7 +60,8 @@ public class NavigationViewModel : INotifyPropertyChanged
         SelectedViewModel = new CreatePage();
     }
     public event PropertyChangedEventHandler? PropertyChanged;
-    protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+
+    private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }

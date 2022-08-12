@@ -9,7 +9,6 @@ namespace ReceptWpf.App.Components.NavPages.Show;
 public partial class ShowControl : UserControl
 {
     public Food Foood { get; set; }
-    public bool IsVisible { get; set; } = false;
     public ShowControl(Food food)
     {
         Foood = food;
@@ -17,9 +16,12 @@ public partial class ShowControl : UserControl
         ImageStack.Source = new BitmapImage(new Uri(Foood.FoodPhoto));
     }
 
+    public ShowControl()
+    {
+        throw new NotImplementedException();
+    }
+
     private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
     {
-       //MainStack.Visibility = Visibility.Collapsed;
-        IsVisible = true;
     }
 }

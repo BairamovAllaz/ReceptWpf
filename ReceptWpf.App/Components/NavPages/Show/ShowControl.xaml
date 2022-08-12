@@ -4,19 +4,20 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:ReceptWpf.App.Components.NavPages.Show"
+             xmlns:home="clr-namespace:ReceptWpf.App.Components.NavPages.Home"
              xmlns:nav="clr-namespace:ReceptWpf.App.Components.NavPages.ActuallComponentShow"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300"
-             DataContext="{Binding RelativeSource={RelativeSource Self}}">
+             >
     <UserControl.Resources>
         <ResourceDictionary Source="ShowControlStyle.xaml"/>
     </UserControl.Resources>
-    <StackPanel>
+    <StackPanel  >
         <StackPanel x:Name="MainStack" Style="{StaticResource StyleStackPanel}">
         <StackPanel>
             <Image x:Name="ImageStack"/>
         </StackPanel>
-        <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Vertical" DataContext="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ShowControl}}}">
             <TextBlock 
                 Text="{Binding Foood.FoodTittle}"
                 Style="{StaticResource StyleTextBlock}"/>
@@ -33,11 +34,12 @@
                 Text="{Binding Foood.PreparationTime}"
                 Style="{StaticResource StyleTextBlock}"/>
         </StackPanel>
-        <StackPanel>
+        <StackPanel DataContext="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type home:Home}}}">
             <Button Content="See.."
                     HorizontalAlignment="Right"
                     Margin="0,-10,10,30"
-                    Click="ButtonBase_OnClick"/>
+                    Click="ButtonBase_OnClick"
+                    Command="{Binding TypeNavigationViewModel.ShowActuall}"/>
         </StackPanel>
         </StackPanel>
     </StackPanel>
