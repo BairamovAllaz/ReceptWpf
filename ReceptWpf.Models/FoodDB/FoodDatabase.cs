@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.Sqlite;
+﻿using System.Data;
+using Microsoft.Data.Sqlite;
 using Models.DBconfig;
 using Models.FoodDB.FoodModels;
 
@@ -15,5 +16,34 @@ public class FoodDatabase : Db
         var result = command.ExecuteNonQuery();
         _db.Close();
         return result; 
+    }
+    
+    public List<Food> GetAllFoods()
+    { 
+        _db.Open();
+        var sql = @$"SELECT * FROM Food";
+        var command = new SqliteCommand(sql,_db);
+        var result = command.ExecuteReader();
+        var foodList = new List<Food>();
+        if (result.HasRows)
+        {
+            while (result.Read())
+            {
+                foodList.Add(new Food{ 
+                    Id = result.GetInt32("food_id"),
+                    PreparationTime = result.GetString("preparation_time"),
+                    DifficultyFood = result.GetString("difficulty_food"),
+                    CreatedTime = result.GetString("created_time"),
+                    FoodPhoto = result.GetString("food_photo"),
+                    Country = result.GetString("country"),
+                    FoodTittle = result.GetString("food_title"), 
+                    Ingredients = result.GetString("ingredients"),
+                    Pretensions = result.GetString("pretensions"),
+                    CreatedBy = result.GetString("created_by") 
+                });
+            }
+        }
+        _db.Close();
+        return foodList;
     }
 }
