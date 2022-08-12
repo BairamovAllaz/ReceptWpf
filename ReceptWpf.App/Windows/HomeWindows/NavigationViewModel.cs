@@ -5,6 +5,7 @@ using System.Windows.Automation;
 using System.Windows.Input;
 using ReceptWpf.App.Components.NavPages;
 using ReceptWpf.App.Components.NavPages.CreatePage;
+using ReceptWpf.App.Components.NavPages.Home;
 
 namespace ReceptWpf.App.Windows.HomeWindows;
 
