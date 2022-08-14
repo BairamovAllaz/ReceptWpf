@@ -17,11 +17,14 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
-        <TextBlock Margin="10">
+            <StackPanel DataContext="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type home:Home}}}">
+            <TextBlock Margin="10">
             <Hyperlink Command="{Binding TypeNavigationViewModel.ShowHomeShow}"
                        Foreground="Blue"
-                       TextDecorations="">Back</Hyperlink>
+                       TextDecorations=""
+                       FontSize="20">Back</Hyperlink>
         </TextBlock>
+            </StackPanel>
         <StackPanel Margin="30,0,0,0">
             <Image x:Name="ImageStack"/>
         </StackPanel>
@@ -32,7 +35,7 @@
                                 <Binding Path="food.FoodTittle"/>
                             </MultiBinding>
                         </TextBlock.Text>
-                        </TextBlock>
+                </TextBlock>
                     <TextBlock Style="{StaticResource StyleTextBlockDefault}">
                         <TextBlock.Text>    
                             <MultiBinding StringFormat="PreparationTime:  {0}">
@@ -56,6 +59,54 @@
                 </TextBlock>
             </StackPanel>
         </StackPanel>       
-        
+        <StackPanel Grid.Column="1" Margin="70,10">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock Style="{StaticResource StyleTextBlockDefault}"
+                           FontSize="15">
+                    <TextBlock.Text>    
+                        <MultiBinding StringFormat="CreatedBy:  {0}">
+                            <Binding Path="food.CreatedBy"/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+                <TextBlock Style="{StaticResource StyleTextBlockDefault}"
+                           FontSize="15">
+                    <TextBlock.Text>    
+                        <MultiBinding StringFormat="DateTime:  {0}">
+                            <Binding Path="food.CreatedTime"/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Margin="20,10">
+                <TextBlock Text="Ingredients: "
+                           Foreground="DarkGreen"
+                           FontSize="20"
+                           Margin="0,0,0,20"/>
+                <ScrollViewer x:Name="ScrollViewerBox" Style="{StaticResource StyleScrollViewer}">
+                    <ListBox x:Name="StackPanelVista"
+                             ItemsSource="{Binding IngredientsList}"
+                             FontSize="20"/>
+                </ScrollViewer>
+                <TextBlock Text="Pretensions: "
+                           Foreground="DarkGreen"
+                           FontSize="20"
+                           Margin="0,15,0,20"/>
+                <StackPanel Style="{StaticResource StyleStackPanelDesctiption}">
+                    <TextBlock Text="{Binding food.Pretensions}"
+                               FontSize="20"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            Style="{StaticResource StyleStackPanelButtons}">
+                    <Button Content="Save Pdf"
+                            Margin="5,0"
+                            Background="Green"/>
+                    <!--TODO IF USER IS NOT CREATED CURRENT FOOD THEN DISABLE DELETE BUTTON-->
+                    <Button Content="Delete"
+                            Margin="5,0"
+                            Background="Red"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </UserControl>
