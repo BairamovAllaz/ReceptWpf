@@ -11,15 +11,51 @@
     <UserControl.Resources>
         <ResourceDictionary Source="ActuallComponentShowStyle.xaml"/>
     </UserControl.Resources>
-    <StackPanel>
-        <StackPanel  >
-        <TextBlock Margin="40">
-            <!--<Hyperlink Command="{Binding TypeNavigationViewModel.ShowHomeShow}"
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.6*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+        <TextBlock Margin="10">
+            <Hyperlink Command="{Binding TypeNavigationViewModel.ShowHomeShow}"
                        Foreground="Blue"
-                       TextDecorations="">Back</Hyperlink>-->
+                       TextDecorations="">Back</Hyperlink>
         </TextBlock>
-            <TextBlock Text="{Binding food.FoodTittle}"/>
-            <Button Content="Show" Click="ButtonBase_OnClick"/>
+        <StackPanel Margin="30,0,0,0">
+            <Image x:Name="ImageStack"/>
         </StackPanel>
-    </StackPanel>
+            <StackPanel Style="{StaticResource StyleStackPanel}">
+                <TextBlock Style="{StaticResource StyleTextBlockDefault}">
+                        <TextBlock.Text>    
+                            <MultiBinding StringFormat="Title:  {0}">
+                                <Binding Path="food.FoodTittle"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                        </TextBlock>
+                    <TextBlock Style="{StaticResource StyleTextBlockDefault}">
+                        <TextBlock.Text>    
+                            <MultiBinding StringFormat="PreparationTime:  {0}">
+                                <Binding Path="food.PreparationTime"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                <TextBlock Style="{StaticResource StyleTextBlockDefault}">
+                    <TextBlock.Text>    
+                        <MultiBinding StringFormat="DifficultyFood:  {0}">
+                            <Binding Path="food.DifficultyFood"/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+                <TextBlock Style="{StaticResource StyleTextBlockDefault}">
+                    <TextBlock.Text>    
+                        <MultiBinding StringFormat="Country:  {0}">
+                            <Binding Path="food.Country"/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+            </StackPanel>
+        </StackPanel>       
+        
+    </Grid>
 </UserControl>
