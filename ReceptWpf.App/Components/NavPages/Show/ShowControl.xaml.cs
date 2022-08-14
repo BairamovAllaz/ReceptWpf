@@ -1,8 +1,11 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using Models.FoodDB.FoodModels;
+using ReceptWpf.App.Components.NavPages.Home;
 
 namespace ReceptWpf.App.Components.NavPages.Show;
 
@@ -23,5 +26,6 @@ public partial class ShowControl : UserControl
 
     private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
     {
+        Home.Home.Foood = Foood;
     }
 }

@@ -4,18 +4,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:home="clr-namespace:ReceptWpf.App.Components.NavPages.Home"
+             xmlns:show="clr-namespace:ReceptWpf.App.Components.NavPages.Show"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}">
     <UserControl.Resources>
         <ResourceDictionary Source="ActuallComponentShowStyle.xaml"/>
     </UserControl.Resources>
     <StackPanel>
-        <StackPanel  DataContext="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type home:Home}}}">
-        <TextBlock Margin="10">
-            <Hyperlink Command="{Binding TypeNavigationViewModel.ShowHomeShow}"
+        <StackPanel  >
+        <TextBlock Margin="40">
+            <!--<Hyperlink Command="{Binding TypeNavigationViewModel.ShowHomeShow}"
                        Foreground="Blue"
-                       TextDecorations="">Back</Hyperlink>
+                       TextDecorations="">Back</Hyperlink>-->
         </TextBlock>
+            <TextBlock Text="{Binding food.FoodTittle}"/>
+            <Button Content="Show" Click="ButtonBase_OnClick"/>
         </StackPanel>
     </StackPanel>
 </UserControl>
