@@ -98,9 +98,11 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal"
                             Style="{StaticResource StyleStackPanelButtons}">
-                    <Button Content="Save Pdf"
+                    <Button x:Name="PdfButton"
+                            Content="Save Pdf"
                             Margin="5,0"
-                            Background="Green"/>
+                            Background="Green"
+                            Click="PdfButton_OnClick"/>
                     <!--TODO IF USER IS NOT CREATED CURRENT FOOD THEN DISABLE DELETE BUTTON-->
                     <Button Content="Delete"
                             Margin="5,0"

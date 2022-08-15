@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="IronPdf" Version="2022.8.7894" />
       <PackageReference Include="MaterialDesignThemes" Version="4.6.0-ci246" />
     </ItemGroup>
 
@@ -18,6 +19,14 @@
     <ItemGroup>
       <None Include="bin\Debug\net6.0-windows\default.png" />
       <None Include="bin\Debug\net6.0-windows\default2.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Components\NavPages\ActuallComponentShow\index.html" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="bin\Debug\net6.0-windows\index.html" />
     </ItemGroup>
 
 </Project>
