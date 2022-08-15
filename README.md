@@ -18,7 +18,8 @@ git clone https://github.com/BairamovAllaz/ReceptWpf.git
 *You can open project using Visual Studio or Rider.*
 ***You must have windows for run this project***
 
-# TODOS
+# TODO
+- [ ] Fix bug #1
 - [ ] Styling:
 - [ ] Update About and User windows:
 - [ ] Update PDF format:
