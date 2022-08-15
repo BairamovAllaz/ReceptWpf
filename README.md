@@ -21,3 +21,26 @@ git clone https://github.com/BairamovAllaz/ReceptWpf.git
 - [ ] Update PDF format:
 - [ ] Add delete button if user own post:
 - [ ] Bug fixing:
+
+# ScreenShots
+**Login Window**
+
+![alt text](https://github.com/BairamovAllaz/ReceptWpf/blob/main/ReceptWpf.App/Screenshots/LoginPage.png?raw=true)
+
+**Sign Window**
+
+![alt text](https://github.com/BairamovAllaz/ReceptWpf/blob/main/ReceptWpf.App/Screenshots/SignPage.png?raw=true)
+
+**Home Window**
+
+![alt text](https://github.com/BairamovAllaz/ReceptWpf/blob/main/ReceptWpf.App/Screenshots/HomeWindow.png?raw=true)
+
+**Create Window**
+
+![alt text](https://github.com/BairamovAllaz/ReceptWpf/blob/main/ReceptWpf.App/Screenshots/CreateWindow.png?raw=true)
+
+**Food Window**
+
+![alt text](https://github.com/BairamovAllaz/ReceptWpf/blob/main/ReceptWpf.App/Screenshots/FoodWindow.png?raw=true)
+
+> PROJECT OPEN FOR PULL REQUEST
