@@ -8,6 +8,9 @@
 - Save food as PDF file
 
 **This site was built using [WPF](https://docs.microsoft.com/en-us/visualstudio/designers/getting-started-with-wpf?view=vs-2022)**
+
+**As databes use [Sqlite](https://www.sqlite.org/index.html)**
+
 *You can clone project using*
 ```
 git clone https://github.com/BairamovAllaz/ReceptWpf.git
