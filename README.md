@@ -7,7 +7,7 @@
 - Update food recept
 - Save food as PDF file
 
-**This site was built using [WPF](https://docs.microsoft.com/en-us/visualstudio/designers/getting-started-with-wpf?view=vs-2022)**
+**This application was built using [WPF](https://docs.microsoft.com/en-us/visualstudio/designers/getting-started-with-wpf?view=vs-2022)**
 
 **As databes project uses [Sqlite](https://www.sqlite.org/index.html)**
 
