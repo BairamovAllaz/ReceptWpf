@@ -19,8 +19,8 @@ git clone https://github.com/BairamovAllaz/ReceptWpf.git
 ***You must have windows for run this project***
 
 # TODO
-- [ ] Fix bug #1
-- [ ] Styling:
+- [x] Fix bug #1
+- [x] Styling:
 - [ ] Update About and User windows:
 - [ ] Update PDF format:
 - [ ] Add delete button if user own post:
