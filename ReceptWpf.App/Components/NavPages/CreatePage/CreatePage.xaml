@@ -19,7 +19,10 @@
             <StackPanel Grid.Column="0"
                         Style="{StaticResource StyleImageStackPanel}">
                 <Image x:Name="PhotoPlace"
-                       Width="100"/>
+                       Width="200"
+                       Height="200"
+                       Stretch="Fill"
+                       />
                 <StackPanel>
                 <Button x:Name="ChangePhotoButton"
                         Content="Change"

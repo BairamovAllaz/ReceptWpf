@@ -15,7 +15,9 @@
     <StackPanel  >
         <StackPanel x:Name="MainStack" Style="{StaticResource StyleStackPanel}">
         <StackPanel>
-            <Image x:Name="ImageStack"/>
+            <Image x:Name="ImageStack"
+                   Width="250" 
+                   Height="170" Stretch="Fill"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" DataContext="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ShowControl}}}">
             <TextBlock 
