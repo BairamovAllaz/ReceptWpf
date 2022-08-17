@@ -11,7 +11,7 @@ public class FoodDatabase : Db
     public int InsertFood(Food food)
     {
         _db.Open();
-        string sql = @$"INSERT INTO Food(preparation_time,difficulty_food,country,created_time,food_photo,food_title,ingredients,pretensions,created_by) VALUES ('{food.PreparationTime}','{food.DifficultyFood}','{food.Country}','{food.CreatedTime}','{food.FoodPhoto}','{food.FoodTittle}','{food.Ingredients}','{food.Pretensions}','{food.CreatedBy}')";
+        string sql = @$"INSERT INTO Food(preparation_time,difficulty_food,country,created_time,food_photo,food_title,ingredients,pretensions,created_by) VALUES ('{food.PreparationTime}','{food.DifficultyFood}','{food.Country}','{food.CreatedTime:g}','{food.FoodPhoto}','{food.FoodTittle}','{food.Ingredients}','{food.Pretensions}','{food.CreatedBy}')";
         SqliteCommand command = new SqliteCommand(sql,_db);
         var result = command.ExecuteNonQuery();
         _db.Close();
@@ -33,7 +33,7 @@ public class FoodDatabase : Db
                     Id = result.GetInt32("food_id"),
                     PreparationTime = result.GetString("preparation_time"),
                     DifficultyFood = result.GetString("difficulty_food"),
-                    CreatedTime = result.GetString("created_time"),
+                    CreatedTime = Convert.ToDateTime(result.GetString("created_time")),
                     FoodPhoto = result.GetString("food_photo"),
                     Country = result.GetString("country"),
                     FoodTittle = result.GetString("food_title"), 

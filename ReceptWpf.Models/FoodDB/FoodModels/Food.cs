@@ -4,7 +4,7 @@ public class Food : IEquatable<Food>
     public int Id { get; set; }
     public string? PreparationTime { get; set; }
     public string? DifficultyFood { get; set; }
-    public string? CreatedTime { get; set; }
+    public DateTime CreatedTime { get; set; }
     public string? FoodPhoto { get; set; }
     public string? Country { get; set; }
     public string? FoodTittle { get; set; }

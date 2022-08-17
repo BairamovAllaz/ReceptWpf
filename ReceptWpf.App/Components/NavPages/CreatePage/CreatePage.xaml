@@ -58,7 +58,7 @@
                     <Button x:Name="RemoveButton"
                             Content="Remove"
                             Style="{StaticResource StyleButtonAdd}"
-                            Click="RemoveButton_OnClick"/>
+                            Click="RemoveButton_OnClick" Height="63" Width="83"/>
                 </StackPanel>
                 <ScrollViewer x:Name="ScrollViewerBox" Style="{StaticResource StyleScrollViewer}">
                     <ListBox x:Name="StackPanelVista"

@@ -61,7 +61,7 @@ public partial class ActuallComponentShow : UserControl
                     .Replace("$$FOODTITLE$$", food.FoodTittle)
                     .Replace("$$PREPARATIONTIME$$", food.PreparationTime)
                     .Replace("$$DIFFICULTYFOOD$$", food.DifficultyFood)
-                    .Replace("$$CREATEDTIME$$", food.CreatedTime)
+                    .Replace("$$CREATEDTIME$$", food.CreatedTime.ToString())
                     .Replace("$$FOODPHOTO$$", food.FoodPhoto)
                     .Replace("$$COUNTRY$$", food.Country)
                     .Replace("$$INGREDIENTS$$", food.Ingredients)

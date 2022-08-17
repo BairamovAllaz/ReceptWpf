@@ -46,7 +46,6 @@ public partial class CreatePage : UserControl
             if (ListOfAddedIngredients.Count == 2) ListOfAddedIngredients.Remove(_firstdefautllistvalue);
         }
     }
-    
     private void RemoveButton_OnClick(object sender, RoutedEventArgs e)
     {
         if (ListOfAddedIngredients.Count > 0)
@@ -69,18 +68,18 @@ public partial class CreatePage : UserControl
     private void FilesButtonSaveClick(Food food)
     {
         var ext = _photo?.Substring(_photo.LastIndexOf('.'));
-        File.Copy(_photo, $@"C:\PhotosWpf\{food.FoodTittle}_{food.CreatedBy}{ext}", true);
         var url = $@"{Directory.GetCurrentDirectory()}\default2.png";
+        _photo ??= url;
+        File.Copy(_photo, $@"C:\PhotosWpf\{food.FoodTittle}_{food.CreatedBy}{ext}", true);
         PhotoPlace.Source = new BitmapImage(new Uri(url));
     }
-
     private Food CreateFoodObj()
     {
         var ext = _photo?.Substring(_photo.LastIndexOf('.'));
         return new Food
         {
             PreparationTime = TimePickerTextBox.Text,
-            CreatedTime = new DateTime().Date.ToString(CultureInfo.InvariantCulture),
+            CreatedTime = DateTime.Now,
             FoodPhoto = $@"C:\PhotosWpf\{TitleBox.Text}_{User?.FirstName}{ext}",
             FoodTittle = TitleBox.Text,
             DifficultyFood = ComboBox.SelectionBoxItem.ToString(),
