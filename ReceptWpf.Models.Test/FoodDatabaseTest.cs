@@ -4,9 +4,7 @@ using System.Globalization;
 using Models.FoodDB;
 using Models.FoodDB.FoodModels;
 using Xunit;
-
 namespace ReceptWpf.Models.Test;
-
 public class FoodDatabaseTest
 {
     [Fact]
@@ -20,7 +18,7 @@ public class FoodDatabaseTest
             PreparationTime = "25",
             Country = "Russia",
             DifficultyFood = "Easy",
-            CreatedTime = Convert.ToString(DateTime.Now, CultureInfo.InvariantCulture),
+            CreatedTime = Convert.ToDateTime(DateTime.Now, CultureInfo.InvariantCulture),
             Ingredients = "1 tbsp olive oil,1 onion-finely chopped,1 tsp caster sugar",
             Pretensions = @"Heat the oil in a medium pan over 
                             a medium heat. Fry the onion and garlic for 8-10 mins until soft. 
@@ -47,7 +45,7 @@ public class FoodDatabaseTest
                 PreparationTime = "25",
                 Country = "Russia",
                 DifficultyFood = "Easy",
-                CreatedTime = Convert.ToString(DateTime.Now, CultureInfo.InvariantCulture),
+                CreatedTime = Convert.ToDateTime(DateTime.Now, CultureInfo.InvariantCulture),
                 Ingredients = "1 tbsp olive oil,1 onion-finely chopped,1 tsp caster sugar",
                 Pretensions = @"Heat the oil in a medium pan over 
                             a medium heat. Fry the onion and garlic for 8-10 mins until soft. 
@@ -60,4 +58,29 @@ public class FoodDatabaseTest
         var actual = new FoodDatabase().GetAllFoods();
         Assert.Equal(listFood,actual);
     }
+
+    /*TODO FIX DELETEFOOD_TEST*/
+    /*[Fact]
+    public void DeleteFood_Test()
+    {
+        var food = new Food
+        {
+            Id = 4,
+            FoodTittle = "test8",
+            FoodPhoto = "urlnothing",
+            CreatedBy = "somehow",
+            PreparationTime = "25",
+            Country = "Russia",
+            DifficultyFood = "Easy",
+            CreatedTime = Convert.ToDateTime(DateTime.Now, CultureInfo.InvariantCulture),
+            Ingredients = "test string",
+            Pretensions = @"Something"
+        };
+        FoodDatabase database = new FoodDatabase();
+        database.InsertFood(food);
+        var actuall = database.DeleteFood(food.Id);
+        var expected = 1;
+        database.InsertFood(food);
+        Assert.Equal(expected,actuall);
+    }*/
 }

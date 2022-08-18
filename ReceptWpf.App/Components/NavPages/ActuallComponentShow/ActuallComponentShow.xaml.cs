@@ -8,18 +8,35 @@ using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using IronPdf;
 using Microsoft.Win32;
+using Models.FoodDB;
 using Models.FoodDB.FoodModels;
+using ReceptWpf.App.Components.NavPages.Home.NavigateConfigs;
+using ReceptWpf.App.Configs;
+using NavigationViewModel = ReceptWpf.App.Windows.HomeWindows.NavigationViewModel;
+
 namespace ReceptWpf.App.Components.NavPages.ActuallComponentShow;
 public partial class ActuallComponentShow : UserControl
 {
     public Food food { get; set; }
+    public bool IsUser { get; set; }
     public List<string> IngredientsList { get; set; }
     public ActuallComponentShow()
     {
         food = Home.Home.Foood;
         IngredientsList = GetIngredients();
+        IsUser = CheckUser(food?.CreatedBy);
         InitializeComponent();
         ImageStack.Source = new BitmapImage(new Uri(food.FoodPhoto));
+    }
+
+    private bool CheckUser(string username)
+    {
+        var actuallUser = UserConfig.GetUserFromJsonFile();
+        if (username == actuallUser?.FirstName)
+        {
+            return true;
+        }
+        return false;
     }
     public List<string> GetIngredients()
     {
@@ -30,6 +47,25 @@ public partial class ActuallComponentShow : UserControl
             fake.Add(s);
         }
         return fake;
+    }
+    /*TODO STYLING DELETE BUTTON*/
+    private void DeleteButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            FoodDatabase foodDatabase = new FoodDatabase();
+            int result = foodDatabase.DeleteFood(food.Id);
+            if (result == 1)
+            {
+                HyperlinkButton.DoClick();
+            }
+        }
+        catch (Exception exception)
+        {
+            Console.WriteLine(exception);
+            throw;
+        }
+        
     }
     private void PdfButton_OnClick(object sender, RoutedEventArgs e)
     {
@@ -53,22 +89,22 @@ public partial class ActuallComponentShow : UserControl
     private void SaveToHtml()
     {
         var resourceName = Assembly.GetExecutingAssembly().GetManifestResourceNames().FirstOrDefault(q => q.Contains("index.html"));
-        using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName))
+        using Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName);
+        using (StreamReader reader = new(stream: stream))
         {
-            using (StreamReader reader = new StreamReader(stream))
-            {
-                string html = reader.ReadToEnd()
-                    .Replace("$$FOODTITLE$$", food.FoodTittle)
-                    .Replace("$$PREPARATIONTIME$$", food.PreparationTime)
-                    .Replace("$$DIFFICULTYFOOD$$", food.DifficultyFood)
-                    .Replace("$$CREATEDTIME$$", food.CreatedTime.ToString())
-                    .Replace("$$FOODPHOTO$$", food.FoodPhoto)
-                    .Replace("$$COUNTRY$$", food.Country)
-                    .Replace("$$INGREDIENTS$$", food.Ingredients)
-                    .Replace("$$PRETENSIONS$$", food.Pretensions)
-                    .Replace("$$CREATEDBY$$", food.CreatedBy);
-                File.WriteAllText("index.html", html);
-            }
+            string html = reader.ReadToEnd()
+                .Replace("$$FOODTITLE$$", food.FoodTittle)
+                .Replace("$$PREPARATIONTIME$$", food.PreparationTime)
+                .Replace("$$DIFFICULTYFOOD$$", food.DifficultyFood)
+                .Replace("$$CREATEDTIME$$", food.CreatedTime.ToString())
+                .Replace("$$FOODPHOTO$$", food.FoodPhoto)
+                .Replace("$$COUNTRY$$", food.Country)
+                .Replace("$$INGREDIENTS$$", food.Ingredients)
+                .Replace("$$PRETENSIONS$$", food.Pretensions)
+                .Replace("$$CREATEDBY$$", food.CreatedBy);
+            File.WriteAllText("index.html", html);
         }
     }
+
+
 }

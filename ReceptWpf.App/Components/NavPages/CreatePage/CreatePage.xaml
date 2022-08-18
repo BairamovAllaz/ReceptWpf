@@ -5,25 +5,24 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:ReceptWpf.App.Components.NavPages.CreatePage"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="1000"
-             DataContext="{Binding RelativeSource={RelativeSource Self}}">
+             mc:Ignorable="d" d:DesignWidth="1000"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}" Height="730">
     <UserControl.Resources>
         <ResourceDictionary Source="CreatePageStyle.xaml"/>
     </UserControl.Resources>
     <Grid Style="{StaticResource DefaultGrid}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2*"/>
-            </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0"
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0"
                         Style="{StaticResource StyleImageStackPanel}">
-                <Image x:Name="PhotoPlace"
+            <Image x:Name="PhotoPlace"
                        Width="200"
                        Height="200"
                        Stretch="Fill"
                        />
-                <StackPanel>
+            <StackPanel>
                 <Button x:Name="ChangePhotoButton"
                         Content="Change"
                         Margin="0,60,0,0"
@@ -40,65 +39,65 @@
                              Style="{StaticResource StyleTextBoxTimePicker}"
                              materialDesign:HintAssist.Hint="PreTime-Minute"/>
                     <ComboBox  x:Name="ComboBox"
-                               Style="{StaticResource ComboBoxStyle}">  
-                        <ComboBoxItem Content="Very Easy"/>  
-                        <ComboBoxItem Content="Easy"/>  
-                        <ComboBoxItem Content="Normal"/>  
-                        <ComboBoxItem Content="Hard"/>  
-                        <ComboBoxItem Content="Very Hard"/>  
-                    </ComboBox>  
-                </StackPanel>
+                               Style="{StaticResource ComboBoxStyle}">
+                        <ComboBoxItem Content="Very Easy"/>
+                        <ComboBoxItem Content="Easy"/>
+                        <ComboBoxItem Content="Normal"/>
+                        <ComboBoxItem Content="Hard"/>
+                        <ComboBoxItem Content="Very Hard"/>
+                    </ComboBox>
                 </StackPanel>
             </StackPanel>
-            <StackPanel Grid.Column="1" HorizontalAlignment="Center" Margin="80,0,0,0">
-                <StackPanel Orientation="Horizontal" Margin="0,40,0,0">
-                    <TextBox  x:Name="IngredientsTextBox"
+        </StackPanel>
+        <StackPanel Grid.Column="1" HorizontalAlignment="Center" Margin="80,0,0,0">
+            <StackPanel Orientation="Horizontal" Margin="0,40,0,0">
+                <TextBox  x:Name="IngredientsTextBox"
                               Style="{StaticResource StyleIngreditens}"
                               materialDesign:HintAssist.Hint="Ingredients"/>
-                    <Button Content="Add"
+                <Button Content="Add"
                             Style="{StaticResource StyleButtonAdd}"
                             Click="ButtonAddOnclick"/>
-                    <Button x:Name="RemoveButton"
+                <Button x:Name="RemoveButton"
                             Content="Remove"
                             Style="{StaticResource StyleButtonAdd}"
                             Click="RemoveButton_OnClick" Height="63" Width="83"/>
-                </StackPanel>
-                <ScrollViewer x:Name="ScrollViewerBox" Style="{StaticResource StyleScrollViewer}">
-                    <ListBox x:Name="StackPanelVista"
+            </StackPanel>
+            <ScrollViewer x:Name="ScrollViewerBox" Style="{StaticResource StyleScrollViewer}">
+                <ListBox x:Name="StackPanelVista"
                              ItemsSource="{Binding ListOfAddedIngredients}"
                              FontSize="20"/>
-                </ScrollViewer>
-                <!--TODO CHANGE TEXTBOX TO RICHTEXTBOX-->
+            </ScrollViewer>
+            <!--TODO CHANGE TEXTBOX TO RICHTEXTBOX-->
             <TextBox x:Name="PretensionsTextBox" Style="{StaticResource StyleTextBoxPretensions}"/>
             <StackPanel>
                 <Button x:Name="SaveButton"
                         Content="Save"
                         Click="SaveButton_OnClick">
                     <Button.Resources>
-                    <Style
+                        <Style
                         BasedOn="{StaticResource StyleSaveButton}"
                         TargetType="{x:Type Button}">
-                        <Style.Triggers>
+                            <Style.Triggers>
                                 <DataTrigger Binding="{Binding ElementName=TitleBox,Path=Text}" Value="">
                                     <Setter Property="IsEnabled" Value="False"/>
-                                </DataTrigger> 
+                                </DataTrigger>
                                 <DataTrigger Binding="{Binding ElementName=CountryBox,Path=Text}" Value="">
                                     <Setter Property="IsEnabled" Value="False"/>
-                                </DataTrigger> 
+                                </DataTrigger>
                                 <DataTrigger Binding="{Binding ElementName=TimePickerTextBox,Path=Text}" Value="">
                                     <Setter Property="IsEnabled" Value="False"/>
-                                </DataTrigger> 
+                                </DataTrigger>
                                 <DataTrigger Binding="{Binding ElementName=PretensionsTextBox,Path=Text}" Value="">
                                     <Setter Property="IsEnabled" Value="False"/>
-                                </DataTrigger> 
+                                </DataTrigger>
                                 <DataTrigger Binding="{Binding ListOfAddedIngredients.Count}" Value="0">
                                     <Setter Property="IsEnabled" Value="False"/>
                                 </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
+                            </Style.Triggers>
+                        </Style>
                     </Button.Resources>
                 </Button>
             </StackPanel>
-            </StackPanel>
-        </Grid>
+        </StackPanel>
+    </Grid>
 </UserControl>

@@ -10,7 +10,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:home="clr-namespace:ReceptWpf.App.Components.NavPages.Home"
         mc:Ignorable="d"
-        Title="HomeWindow" Height="750" Width="1000">
+        Title="HomeWindow" Height="900" Width="1000">
     <Window.DataContext>
         <local:NavigationViewModel/>
     </Window.DataContext>

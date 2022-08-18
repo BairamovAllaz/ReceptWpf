@@ -46,4 +46,13 @@ public class FoodDatabase : Db
         _db.Close();
         return foodList;
     }
+    public int DeleteFood(int foodid)
+    {
+        _db.Open();
+        string sql = @$"DELETE FROM Food WHERE food_id == '{foodid}'";
+        SqliteCommand command = new SqliteCommand(sql,_db);
+        var result = command.ExecuteNonQuery();
+        _db.Close();
+        return result;
+    }
 }
