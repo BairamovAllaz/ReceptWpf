@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:ReceptWpf.App.Components.NavPages.CreatePage"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" d:DesignWidth="1000"
-             DataContext="{Binding RelativeSource={RelativeSource Self}}" Height="730">
+             DataContext="{Binding RelativeSource={RelativeSource Self}}" Height="900">
     <UserControl.Resources>
         <ResourceDictionary Source="CreatePageStyle.xaml"/>
     </UserControl.Resources>
@@ -18,8 +18,8 @@
         <StackPanel Grid.Column="0"
                         Style="{StaticResource StyleImageStackPanel}">
             <Image x:Name="PhotoPlace"
-                       Width="200"
-                       Height="200"
+                       Width="100"
+                       Height="100"
                        Stretch="Fill"
                        />
             <StackPanel>

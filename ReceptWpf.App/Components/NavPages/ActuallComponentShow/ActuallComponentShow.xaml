@@ -104,11 +104,11 @@
                             Margin="5,0"
                             Background="Green"
                             Click="PdfButton_OnClick"/>
-                    <!--TODO IF USER IS NOT CREATED CURRENT FOOD THEN DISABLE DELETE BUTTON-->
                     <Button x:Name="DeleteButton"
                             Content="Delete"
                             Margin="5,0"
                             Background="Red"
+                            Foreground="White"
                             Click="DeleteButton_OnClick">
                         <Button.Resources>
                                 <Style TargetType="{x:Type Button}"

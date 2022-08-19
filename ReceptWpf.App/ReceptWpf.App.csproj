@@ -29,4 +29,8 @@
       <EmbeddedResource Include="bin\Debug\net6.0-windows\index.html" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Content Include="bin\Debug\net6.0-windows\buffer.html" />
+    </ItemGroup>
+
 </Project>

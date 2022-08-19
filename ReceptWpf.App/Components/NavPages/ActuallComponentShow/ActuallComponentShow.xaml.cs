@@ -53,12 +53,20 @@ public partial class ActuallComponentShow : UserControl
     {
         try
         {
-            FoodDatabase foodDatabase = new FoodDatabase();
-            int result = foodDatabase.DeleteFood(food.Id);
-            if (result == 1)
-            {
-                HyperlinkButton.DoClick();
-            }
+           MessageBoxResult resultmessage = MessageBox.Show("Info",$"Are you sure to delete food {food.FoodTittle}",MessageBoxButton.YesNo);
+           if (resultmessage == MessageBoxResult.Yes)
+           {
+               FoodDatabase foodDatabase = new FoodDatabase();
+               int result = foodDatabase.DeleteFood(food.Id);
+               if (result == 1)
+               {
+                   HyperlinkButton.DoClick();
+               }     
+           }
+           else
+           {
+               return;
+           }
         }
         catch (Exception exception)
         {
@@ -69,6 +77,8 @@ public partial class ActuallComponentShow : UserControl
     }
     private void PdfButton_OnClick(object sender, RoutedEventArgs e)
     {
+        string htmltext = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "buffer.html"));
+        File.WriteAllText(Path.Combine(Directory.GetCurrentDirectory(),"index.html"),htmltext);
         SaveFileDialog saveFileDialog = new SaveFileDialog();
         saveFileDialog.InitialDirectory = @"C:\";
         saveFileDialog.Title = "Save pdf file";
@@ -90,18 +100,19 @@ public partial class ActuallComponentShow : UserControl
     {
         var resourceName = Assembly.GetExecutingAssembly().GetManifestResourceNames().FirstOrDefault(q => q.Contains("index.html"));
         using Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName);
+        
         using (StreamReader reader = new(stream: stream))
         {
             string html = reader.ReadToEnd()
                 .Replace("$$FOODTITLE$$", food.FoodTittle)
                 .Replace("$$PREPARATIONTIME$$", food.PreparationTime)
                 .Replace("$$DIFFICULTYFOOD$$", food.DifficultyFood)
-                .Replace("$$CREATEDTIME$$", food.CreatedTime.ToString())
+                /*.Replace("$$CREATEDTIME$$", food.CreatedTime.ToString())
                 .Replace("$$FOODPHOTO$$", food.FoodPhoto)
                 .Replace("$$COUNTRY$$", food.Country)
                 .Replace("$$INGREDIENTS$$", food.Ingredients)
                 .Replace("$$PRETENSIONS$$", food.Pretensions)
-                .Replace("$$CREATEDBY$$", food.CreatedBy);
+                .Replace("$$CREATEDBY$$", food.CreatedBy)*/;
             File.WriteAllText("index.html", html);
         }
     }
