@@ -19,12 +19,12 @@ git clone https://github.com/BairamovAllaz/ReceptWpf.git
 ***You must have windows for run this project***
 
 # TODO
-- [x] Fix bug #1
-- [x] Styling:
-- [ ] Update About and User windows:
-- [ ] Update PDF format:
-- [ ] Add delete button if user own post:
-- [ ] Bug fixing:
+- [ ] Add RichTextBox:
+- [ ] Fix Styling image:
+- [ ] Give some css to pdf:
+- [ ] Fix delete and pdf buttons place:
+- [ ] Stylem Fixing inside Home:
+- [ ] Add user and about page:
 
 # ScreenShots
 **Login Window**
