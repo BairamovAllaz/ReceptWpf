@@ -17,18 +17,40 @@ using NavigationViewModel = ReceptWpf.App.Windows.HomeWindows.NavigationViewMode
 namespace ReceptWpf.App.Components.NavPages.ActuallComponentShow;
 public partial class ActuallComponentShow : UserControl
 {
+    /// <summary>
+    /// Food which user clicked at show component
+    /// </summary>
     public Food food { get; set; }
+    
+    /// <summary>
+    /// Variable which hold current user created that food or not.If true than will enable delete button.
+    /// </summary>
     public bool IsUser { get; set; }
+    
+    /// <summary>
+    /// List of Ingredients,in current food
+    /// </summary>
     public List<string> IngredientsList { get; set; }
     public ActuallComponentShow()
     {
+        //take food from home component
         food = Home.Home.Foood;
+        //get all Ingredients
         IngredientsList = GetIngredients();
+        //check if user admin
         IsUser = CheckUser(food?.CreatedBy);
         InitializeComponent();
+        //Push food image to image source
         ImageStack.Source = new BitmapImage(new Uri(food.FoodPhoto));
+        CopyFromBufToIndex();
     }
 
+    /// <summary>
+    /// Method which take authorization user from config file and chech if with current user
+    /// if users equal return true otherwise false
+    /// </summary>
+    /// <param name="username">Current user</param>
+    /// <returns></returns>
     private bool CheckUser(string username)
     {
         var actuallUser = UserConfig.GetUserFromJsonFile();
@@ -38,6 +60,11 @@ public partial class ActuallComponentShow : UserControl
         }
         return false;
     }
+    
+    /// <summary>
+    /// Get all Ingredients from string and return list of Ingredients
+    /// </summary>
+    /// <returns>List of Ingredients</returns>
     public List<string> GetIngredients()
     {
         List<string> fake = new List<string>();
@@ -48,7 +75,11 @@ public partial class ActuallComponentShow : UserControl
         }
         return fake;
     }
-    /*TODO STYLING DELETE BUTTON*/
+    /// <summary>
+    /// Event for delete food works if isUser true
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void DeleteButton_OnClick(object sender, RoutedEventArgs e)
     {
         try
@@ -75,10 +106,21 @@ public partial class ActuallComponentShow : UserControl
         }
         
     }
-    private void PdfButton_OnClick(object sender, RoutedEventArgs e)
+    /// <summary>
+    /// Method that open buffer.html and write to index.html
+    /// </summary>
+    private void CopyFromBufToIndex()
     {
         string htmltext = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "buffer.html"));
         File.WriteAllText(Path.Combine(Directory.GetCurrentDirectory(),"index.html"),htmltext);
+    }
+
+    /// <summary>
+    /// Create and initalization savedialog object for pdf
+    /// </summary>
+    /// <returns>SaveDialog object</returns>
+    private SaveFileDialog InitSaveDialog()
+    {
         SaveFileDialog saveFileDialog = new SaveFileDialog();
         saveFileDialog.InitialDirectory = @"C:\";
         saveFileDialog.Title = "Save pdf file";
@@ -86,6 +128,13 @@ public partial class ActuallComponentShow : UserControl
         saveFileDialog.Filter = "Pdf files (*.pdf)|*.pdf|All files (*.*)|*.*";
         saveFileDialog.FilterIndex = 2;
         saveFileDialog.RestoreDirectory = true;
+        return saveFileDialog;
+    }
+    
+    private void PdfButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        CopyFromBufToIndex();
+        SaveFileDialog saveFileDialog = InitSaveDialog();
         Nullable<bool> result = saveFileDialog.ShowDialog();
         if (result == true)
         {
@@ -96,6 +145,10 @@ public partial class ActuallComponentShow : UserControl
             MessageBox.Show("File succesfully saved");
         }
     }
+    
+    /// <summary>
+    /// Opens html file (resource type) and replace all the text inside from food object
+    /// </summary>
     private void SaveToHtml()
     {
         var resourceName = Assembly.GetExecutingAssembly().GetManifestResourceNames().FirstOrDefault(q => q.Contains("index.html"));
@@ -107,15 +160,13 @@ public partial class ActuallComponentShow : UserControl
                 .Replace("$$FOODTITLE$$", food.FoodTittle)
                 .Replace("$$PREPARATIONTIME$$", food.PreparationTime)
                 .Replace("$$DIFFICULTYFOOD$$", food.DifficultyFood)
-                /*.Replace("$$CREATEDTIME$$", food.CreatedTime.ToString())
+                .Replace("$$CREATEDTIME$$", food.CreatedTime.ToString())
                 .Replace("$$FOODPHOTO$$", food.FoodPhoto)
                 .Replace("$$COUNTRY$$", food.Country)
                 .Replace("$$INGREDIENTS$$", food.Ingredients)
                 .Replace("$$PRETENSIONS$$", food.Pretensions)
-                .Replace("$$CREATEDBY$$", food.CreatedBy)*/;
+                .Replace("$$CREATEDBY$$", food.CreatedBy);
             File.WriteAllText("index.html", html);
         }
     }
-
-
 }
