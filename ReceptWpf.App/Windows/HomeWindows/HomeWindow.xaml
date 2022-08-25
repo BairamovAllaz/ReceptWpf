@@ -9,6 +9,7 @@
         xmlns:local="clr-namespace:ReceptWpf.App.Windows.HomeWindows"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:home="clr-namespace:ReceptWpf.App.Components.NavPages.Home"
+        xmlns:user="clr-namespace:ReceptWpf.App.Components.NavPages.User"
         mc:Ignorable="d"
         Title="HomeWindow" Height="900" Width="1000">
     <Window.DataContext>
@@ -21,8 +22,8 @@
         <DataTemplate DataType="{x:Type home:Home}">
             <home:Home/>
         </DataTemplate>  
-        <DataTemplate DataType="{x:Type pages:User}">
-            <pages:User/>
+        <DataTemplate DataType="{x:Type user:User}">
+            <user:User/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type create:CreatePage}">
             <create:CreatePage/>

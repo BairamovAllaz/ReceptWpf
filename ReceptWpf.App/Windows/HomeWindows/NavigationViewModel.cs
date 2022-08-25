@@ -7,6 +7,7 @@ using ReceptWpf.App.Components.NavPages;
 using ReceptWpf.App.Components.NavPages.ActuallComponentShow;
 using ReceptWpf.App.Components.NavPages.CreatePage;
 using ReceptWpf.App.Components.NavPages.Home;
+using ReceptWpf.App.Components.NavPages.User;
 
 namespace ReceptWpf.App.Windows.HomeWindows;
 public sealed class NavigationViewModel : INotifyPropertyChanged

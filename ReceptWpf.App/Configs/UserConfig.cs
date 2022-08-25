@@ -16,7 +16,7 @@ public static class UserConfig
         streamWriter.Write(jsonstring);
     }
 
-    public static User? GetUserFromJsonFile()
+    public static User GetUserFromJsonFile()
     {
         string jsonString = File.ReadAllText(_filename);
         User? juser = JsonSerializer.Deserialize<User>(jsonString);
