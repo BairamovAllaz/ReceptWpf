@@ -11,14 +11,20 @@
              d:DesignHeight="750" d:DesignWidth="1000"
              DataContext="{Binding RelativeSource={x:Static RelativeSource.Self}}">
     <UserControl.Resources>
+        <ResourceDictionary>
             <DataTemplate DataType="{x:Type homeShow:HomeShowComponent}">
                 <homeShow:HomeShowComponent/>
             </DataTemplate>
             <DataTemplate DataType="{x:Type actuall:ActuallComponentShow}">
                 <actuall:ActuallComponentShow/>
             </DataTemplate>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="HomeStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </UserControl.Resources>
    <StackPanel>
-       <ContentControl x:Name="Pages" Content="{Binding TypeNavigationViewModel.SelectedViewModel}"/>
+       <ContentControl x:Name="Pages"
+                       Content="{Binding TypeNavigationViewModel.SelectedViewModel}"/>
    </StackPanel> 
 </UserControl>

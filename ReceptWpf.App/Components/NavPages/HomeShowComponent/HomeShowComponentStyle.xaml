@@ -13,4 +13,10 @@
         <Setter Property="HorizontalAlignment" Value="Center"/>  
         <Setter Property="Orientation" Value="Horizontal"/>
     </Style>
+    
+    <Style x:Key="StyleStackPanel"
+           TargetType="{x:Type StackPanel}">
+        <Setter Property="Height" Value="60"/>
+        <Setter Property="Margin" Value="40"/>
+    </Style>
 </ResourceDictionary>

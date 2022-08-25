@@ -27,5 +27,6 @@ public partial class ShowControl : UserControl
     private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
     {
         Home.Home.Foood = Foood;
+        
     }
 }

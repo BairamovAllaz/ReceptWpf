@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using Models.FoodDB;
 using Models.FoodDB.FoodModels;
 using ReceptWpf.App.Components.NavPages.Home.NavigateConfigs;
@@ -31,4 +32,6 @@ public partial class Home : UserControl
         TypeNavigationViewModel = new NavigationViewModel();
         InitializeComponent();
     }
+
+    
 }

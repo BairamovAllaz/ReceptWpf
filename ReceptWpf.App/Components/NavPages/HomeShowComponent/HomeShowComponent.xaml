@@ -4,13 +4,20 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
-             d:DesignHeight="500" d:DesignWidth="300">
+             d:DesignHeight="500" d:DesignWidth="300"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}">
     <UserControl.Resources>
         <ResourceDictionary Source="HomeShowComponentStyle.xaml"/>
     </UserControl.Resources>
-    <ScrollViewer Style="{StaticResource StyleScrollViewer}">
+    <StackPanel>
+        <StackPanel x:Name="SearchStackPanel" Style="{StaticResource StyleStackPanel}">
+            <TextBox x:Name="SearchText"
+                     TextChanged="SearchText_OnTextChanged"/>
+        </StackPanel>
+        <ScrollViewer Style="{StaticResource StyleScrollViewer}">
             <WrapPanel  x:Name="Stack"
                         Style="{StaticResource StyleWrapPanel}">
             </WrapPanel>
         </ScrollViewer>
+    </StackPanel>
 </UserControl>
