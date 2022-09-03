@@ -6,6 +6,7 @@
         <RootNamespace>Models</RootNamespace>
     </PropertyGroup>
     <ItemGroup>
+      <PackageReference Include="Faker" Version="1.2.0" />
       <PackageReference Include="Microsoft.Data.Sqlite" Version="7.0.0-preview.6.22329.4" />
       <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="7.0.0-preview.6.22329.4" />
     </ItemGroup>

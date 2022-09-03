@@ -4,7 +4,7 @@ using Models.DBconfig;
 using Models.UserDB.User_Models;
 
 namespace Models.UserDB;
-public class UserDatabase : Db
+public class UserDatabase : Db,IUserDatabase
 {
     public UserDatabase() : base() {}
     public int InsertUser(User user)
